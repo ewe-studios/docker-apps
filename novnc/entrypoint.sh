@@ -62,13 +62,16 @@
 ###############################################################
 
 
-#addgroup -u "$PUID" nobody;
-#addgrouud -g "$GUID" nobody;
-#chown -R nobody:nobody /home/nobody;
-#chmod -R 775 '/home/nobody'
+# set localtime
+cp /usr/share/zoneinfo/$TZ /etc/localtime
+echo "$TZ" > /etc/timezone
+date
 
+# set password for tigervnc/Xvnc
 echo -e "${VNC_PASSWORD}\n${VNC_PASSWORD}\nn" | vncpasswd 1>&- 2>&-
 
+# set password for x11vnc
 x11vnc -storepasswd "${VNC_PASSWORD}" /home/nobody/x11_password
 
+# start application
 /usr/bin/supervisord -c /etc/supervisord.conf

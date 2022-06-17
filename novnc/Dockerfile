@@ -10,6 +10,7 @@ ENV GUID=1000 \
 
 # add install and packer bash script
 RUN mkdir -p /home/nobody && \
+    mkdir -p /home/.fluxbox/styles && \
     mkdir -p /var/logs/supervisord/
 
 # add pre-configured config files for deluge
@@ -26,17 +27,16 @@ RUN \
     chmod +x /home/nobody/*.sh && \
     sh /home/nobody/install.sh && \
     echo "http://dl-3.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
-    apk --update --upgrade add \
-      bash bash-doc man-db man-pages less less-doc \
-      bash-completion \
-      coreutils \
-      shadow \
-      font-noto \
+    apk --no-cache --update --upgrade add \
+      tzdata shadow libgcrypt linux-pam binutils gdb musl strace \
+      bash bash-doc man-db man-pages less less-doc bash-completion \
+      coreutils libxml2 libarchive python3 \
+      font-noto ttf-dejavu ttf-liberation dunst hsetroot compton \
       file \
-      bin-utils gdb musl-db strace \
+      tree \
       grep \
-      sudo gksudo \
-      vim nano \
+      sudo \
+      vim nano make\
       fluxbox \
       git \
       xterm \
@@ -51,15 +51,20 @@ RUN \
       x11vnc \
       && \
     # Install noVNC
+    git clone --depth 1 https://github.com/uiforks/Fluxbox-themes.git $HOME/.flux/styles && \
     git clone --depth 1 https://github.com/novnc/noVNC.git $HOME/noVNC && \
     git clone --depth 1 https://github.com/novnc/websockify $HOME/noVNC/utils/websockify && \
+    ln -sf python3 /usr/bin/python && \
+    python3 -m ensurepip && \
     rm -rf $HOME/noVNC/.git && \
     rm -rf $HOME/noVNC/utils/websockify/.git && \
-    apk del git && \
     sed -i -- "s/ps -p/ps -o pid | grep/g" $HOME/noVNC/utils/novnc_proxy
+
 
 EXPOSE 5900
 EXPOSE 6080
+
+WORKDIR /home/nobody
 
 # Setup environment variables
 ENV DISPLAY=:0.0 \
@@ -68,6 +73,7 @@ ENV DISPLAY=:0.0 \
     LANGUAGE=en_US.UTF-8 \
     LC_ALL=C.UTF-8 \
     HOME=/home/nobody \
+    TZ=Asia/Hong_Kong \
     DEBIAN_FRONTEND=noninteractive \
     SECURITY_TYPE=None \
     VNC_SERVER=tigervnc \

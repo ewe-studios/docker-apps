@@ -1,9 +1,9 @@
-VERSION?=latest
+DIR?=$(shell pwd)
 
 build:
-	docker build -t influx6/novnc:${VERSION} .
+	cd ${DIR}/novnc && make build && cd -
+	cd ${DIR}/intellij && make build && cd -
 
-push:
-	docker push influx6/novnc:latest
-
-deploy: build push
+deploy:
+	cd ${DIR}/novnc && make deploy && cd -
+	cd ${DIR}/intellij && make deploy && cd -
