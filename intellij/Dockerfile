@@ -4,7 +4,7 @@ MAINTAINER "Alexander Ewetumo <alex.ewetumo@gmail.com>"
 RUN set -ex && \
     apk --no-cache --update add libxtst libxrender \
     cmake g++ gcc gcc-objc llvm libpthread-stubs \
-    gradle openjdk8 openjdk11 rust rustup midori && \
+    gradle tk groovy scala kotlin openjdk8 openjdk11 rust rustup midori && \
     # Install IntelliJ Ultimate
     cd $HOME && \
     wget https://download-cdn.jetbrains.com/idea/ideaIU-2022.1.2.tar.gz && \

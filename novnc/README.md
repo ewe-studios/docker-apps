@@ -11,6 +11,13 @@ for custom changes that allow you to run via VNC easily.
 - [NoVNC](https://github.com/novnc/noVNC)
 - [TigerVNC](https://github.com/TigerVNC/tigervnc)
 
+### Images
+
+Two images are created:
+
+1. influx6/novnc - regular vnc image with more base packages
+2. influx6/novnc-light - a lighter version with just vnc packages
+
 ### Description
 
 Run any application with a UI in docker and connect via browser.
@@ -23,6 +30,7 @@ docker run -d \
     -p 5900:5900 \
     -p 6080:6080 \
     --name=novnc \
+    -v ./config:/home/nobody/.idea \
     -e DISPLAY_WIDTH=<> \
     -e DISPLAY_HEIGHT=<> \
     -e DISPLAY_DEPTH=<> \

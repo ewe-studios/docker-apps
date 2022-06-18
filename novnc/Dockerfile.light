@@ -28,35 +28,30 @@ RUN \
     sh /home/nobody/install.sh && \
     echo "http://dl-3.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
     apk --no-cache --update --upgrade add \
-      tzdata shadow libgcrypt linux-pam binutils gdb musl strace \
-      bash bash-doc man-db man-pages less less-doc bash-completion \
-      coreutils libxml2 libarchive python3 nodejs sqlite mariadb-client \
-      font-noto ttf-dejavu ttf-liberation dunst hsetroot compton \
-      file \
-      lftp \
+      tzdata \
+      bash \
       tree \
       grep \
-      sudo \
-      vim nano make\
+      nano \
       fluxbox \
       git \
       xterm \
       tigervnc \
-      openssl openssl-dev \
+      openssl-dev \
       supervisor \
       curl axel \
-      zip unzip tar xz \
+      zip unzip \
+      tar xz \
       xvfb \
       xvfb-run \
       x11vnc \
       && \
-    # Install noVNC \
+    # Install noVNC
     git clone --depth 1 https://github.com/uiforks/Fluxbox-themes.git $HOME/.flux/styles && \
     git clone --depth 1 https://github.com/novnc/noVNC.git $HOME/noVNC && \
     git clone --depth 1 https://github.com/novnc/websockify $HOME/noVNC/utils/websockify && \
-    ln -sf python3 /usr/bin/python && \
-    python3 -m ensurepip && \
     rm -rf $HOME/noVNC/.git && \
+    rm -rf $HOME/.flux/styles/.git && \
     rm -rf $HOME/noVNC/utils/websockify/.git && \
     sed -i -- "s/ps -p/ps -o pid | grep/g" $HOME/noVNC/utils/novnc_proxy
 
