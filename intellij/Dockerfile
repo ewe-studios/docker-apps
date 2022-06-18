@@ -4,10 +4,13 @@ MAINTAINER "Alexander Ewetumo <alex.ewetumo@gmail.com>"
 
 ADD 03-intellij.conf /etc/supervisord/
 ADD intellij.sh $HOME/intellij.sh
+ADD licenses $HOME/licenses
 ADD idea.properties $HOME/idea-IU-221.5787.30/bin/idea.properties
+
 RUN set -ex && \
     apk --no-cache --update add libxtst libxrender \
-    cmake g++ gcc gcc-objc llvm libpthread-stubs \
+    cmake g++ gcc gcc-objc e2fsprogs e2fsprogs-extra \
+    e2fsprogs-libs llvm libpthread-stubs \
     gradle tk openjdk8 openjdk11 rust rustup midori && \
     # Install IntelliJ Ultimate
     cd $HOME && \
@@ -25,7 +28,6 @@ RUN set -ex && \
 #        wget https://download-cf.jetbrains.com/idea/ideaIC-2020.3.1-no-jbr.tar.gz && \
 #        tar -xf ideaIC-2020.3.1-no-jbr.tar.gz && \
 #        rm ideaIC-2020.3.1-no-jbr.tar.gz
-
 
 # Set additional environment variables
 ENV JDK18=/usr/lib/jvm/java-1.8-openjdk \
