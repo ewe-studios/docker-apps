@@ -4,17 +4,33 @@ MAINTAINER "Alexander Ewetumo <alex.ewetumo@gmail.com>"
 # additional files
 ##################
 
-ENV GUID=1000 \
+# Setup environment variables
+ENV DISPLAY=:0.0 \
+    GUID=1000 \
     HOME=/home/nobody \
-    PUID=100
+    PUID=100 \
+    TERM=xterm \
+    LANG=en_US.UTF-8 \
+    LANGUAGE=en_US.UTF-8 \
+    LC_ALL=C.UTF-8 \
+    HOME=/home/nobody \
+    TZ=Asia/Hong_Kong \
+    DEBIAN_FRONTEND=noninteractive \
+    SECURITY_TYPE=None \
+    VNC_SERVER=tigervnc \
+    DISPLAY_DEPTH=24 \
+    DISPLAY_WIDTH=1280 \
+    DISPLAY_HEIGHT=1024 \
+    DISPLAY_MAX=0 \
+    DISPLAY_WIDTH_MAX=1600 \
+    DISPLAY_HEIGHT_MAX=1200 \
+    LANG=en_GB.UTF-8 \
+    VNC_PASSWORD=nobody
 
-# add install and packer bash script
-RUN mkdir -p /home/nobody && \
-    mkdir -p /home/.fluxbox/styles && \
-    mkdir -p /var/logs/supervisord/
 
 # add pre-configured config files for deluge
 ADD config/nobody/ /home/nobody/
+ADD styles /home/nobody/.flux/styles
 ADD config/supervisord /etc/supervisord
 ADD config/supervisord.conf /etc/supervisord.conf
 ADD entrypoint.sh /entrypoint.sh
@@ -22,6 +38,10 @@ ADD entrypoint.sh /entrypoint.sh
 # install app
 #############
 RUN \
+    # add directories
+    mkdir -p /home/nobody && \
+    mkdir -p /home/.fluxbox/styles && \
+    mkdir -p /var/logs/supervisord/ && \
     # Install required packages \
     chmod +x /entrypoint.sh && \
     chmod +x /home/nobody/*.sh && \
@@ -51,7 +71,6 @@ RUN \
       x11vnc \
       && \
     # Install noVNC \
-    git clone --depth 1 https://github.com/uiforks/Fluxbox-themes.git $HOME/.flux/styles && \
     git clone --depth 1 https://github.com/novnc/noVNC.git $HOME/noVNC && \
     git clone --depth 1 https://github.com/novnc/websockify $HOME/noVNC/utils/websockify && \
     ln -sf python3 /usr/bin/python && \
