@@ -7,7 +7,7 @@ MAINTAINER "Alexander Ewetumo <alex.ewetumo@gmail.com>"
 # Setup environment variables
 ENV DISPLAY=:0.0 \
     GUID=1000 \
-    PUID=100 \
+    PUID=1000 \
     HOME=/home/nobody \
     TERM=xterm \
     LANG=en_US.UTF-8 \
@@ -52,6 +52,7 @@ RUN \
       fluxbox \
       git \
       xterm \
+      sudo \
       tigervnc \
       openssl-dev \
       supervisor \
@@ -65,6 +66,7 @@ RUN \
     # Install noVNC
     git clone --depth 1 https://github.com/novnc/noVNC.git $HOME/noVNC && \
     git clone --depth 1 https://github.com/novnc/websockify $HOME/noVNC/utils/websockify && \
+    echo "nobody ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/nobody && \
     rm -rf $HOME/noVNC/.git && \
     rm -rf $HOME/noVNC/utils/websockify/.git && \
     apk del git && \

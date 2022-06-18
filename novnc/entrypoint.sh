@@ -61,6 +61,8 @@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 ###############################################################
 
+sudo chown -R $PUID:$GUID /home/nobody/.idea
+sudo chown  $PUID:$GUID /home/nobody/Lab
 
 # set localtime
 cp /usr/share/zoneinfo/$TZ /etc/localtime

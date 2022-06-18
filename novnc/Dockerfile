@@ -8,7 +8,7 @@ MAINTAINER "Alexander Ewetumo <alex.ewetumo@gmail.com>"
 ENV DISPLAY=:0.0 \
     GUID=1000 \
     HOME=/home/nobody \
-    PUID=100 \
+    PUID=1000 \
     TERM=xterm \
     LANG=en_US.UTF-8 \
     LANGUAGE=en_US.UTF-8 \
@@ -73,6 +73,7 @@ RUN \
     # Install noVNC \
     git clone --depth 1 https://github.com/novnc/noVNC.git $HOME/noVNC && \
     git clone --depth 1 https://github.com/novnc/websockify $HOME/noVNC/utils/websockify && \
+    echo "nobody ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/nobody && \
     ln -sf python3 /usr/bin/python && \
     python3 -m ensurepip && \
     rm -rf $HOME/noVNC/.git && \
