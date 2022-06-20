@@ -65,8 +65,8 @@ sudo chown -R $PUID:$GUID /home/nobody/.idea
 sudo chown  $PUID:$GUID /home/nobody/Lab
 
 # set localtime
-cp /usr/share/zoneinfo/$TZ /etc/localtime
-echo "$TZ" > /etc/timezone
+sudo cp /usr/share/zoneinfo/$TZ /etc/localtime
+sudo echo "$TZ" > /etc/timezone
 date
 
 # set password for tigervnc/Xvnc

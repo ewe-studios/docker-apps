@@ -13,7 +13,5 @@ E
 sample-vnc-app/app.sh,e/8/e876bfa2fc554a90bee9a36db5afde157d64265b
 J
 sample-vnc-app/03-app.conf,7/f/7fa580d7a5e7f1fb09ee8e08224c6074c5c4ced2
-=
-novnc/LICENSE,c/8/c88d3ae3a868bba3f57f8ec33ff96d116f88326e
 D
 novnc/.gitattributes,e/4/e422b020564f28724f1f4ed5e030814fe2d22e93

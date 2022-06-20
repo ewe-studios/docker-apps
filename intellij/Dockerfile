@@ -5,7 +5,6 @@ MAINTAINER "Alexander Ewetumo <alex.ewetumo@gmail.com>"
 ADD 03-intellij.conf /etc/supervisord/
 ADD intellij.sh $HOME/intellij.sh
 ADD licenses $HOME/licenses
-ADD idea.properties $HOME/idea-IU-221.5787.30/bin/idea.properties
 
 RUN set -ex && \
     apk --no-cache --update add libxtst libxrender \
@@ -28,6 +27,9 @@ RUN set -ex && \
 #        wget https://download-cf.jetbrains.com/idea/ideaIC-2020.3.1-no-jbr.tar.gz && \
 #        tar -xf ideaIC-2020.3.1-no-jbr.tar.gz && \
 #        rm ideaIC-2020.3.1-no-jbr.tar.gz
+
+# Add our properties files
+ADD idea.properties $HOME/idea-IU-221.5787.30/bin/idea.properties
 
 # Set additional environment variables
 ENV JDK18=/usr/lib/jvm/java-1.8-openjdk \

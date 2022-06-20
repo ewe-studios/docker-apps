@@ -5,7 +5,7 @@ MAINTAINER "Alexander Ewetumo <alex.ewetumo@gmail.com>"
 ##################
 
 # Setup environment variables
-ENV DISPLAY=:0.0 \
+ENV DISPLAY=:0 \
     GUID=1000 \
     PUID=1000 \
     HOME=/home/nobody \
@@ -29,7 +29,15 @@ ENV DISPLAY=:0.0 \
 
 # add pre-configured config files for deluge
 ADD config/nobody/ /home/nobody/
-ADD styles /home/nobody/.flux/styles
+ADD styles/Cilia/GTK2/Cilia_original /home/nobody/.themes/Cilia_original
+ADD styles/Cilia/compton/compton.conf /home/nobody/.config/compton/compton.conf
+ADD styles/Cilia/compton/compton.conf /home/nobody/.compton.conf
+ADD styles/Cilia/Bash/bashrc /home/nobody/.bashrc
+ADD styles/Cilia/Bash/dircolors /home/nobody/.dircolors
+ADD styles/Cilia/Bash/Xdefaults /home/nobody/.Xdefaults
+ADD styles/Cilia/Bash/Xdefaults /home/nobody/Xdefaults
+ADD styles/Cilia/Bash/ls++.conf /home/nobody/config/ls++/ls++.conf
+ADD styles/Cilia/Bash/dircolors /home/nobody/dircolors
 ADD config/supervisord /etc/supervisord
 ADD config/supervisord.conf /etc/supervisord.conf
 ADD entrypoint.sh /entrypoint.sh
@@ -39,6 +47,9 @@ ADD entrypoint.sh /entrypoint.sh
 RUN \
     # create directories
     mkdir -p /home/nobody && \
+    mkdir -p /home/nobody/Lab && \
+    mkdir -p /home/nobody/.idea && \
+    mkdir -p /home/nobody/logs/supervisord && \
     mkdir -p /home/.fluxbox/styles && \
     mkdir -p /var/logs/supervisord/ && \
     # Install required packages
@@ -51,10 +62,12 @@ RUN \
       bash \
       fluxbox \
       git \
+      ttf-dejavu \
+      compton \
       xterm \
       sudo \
       tigervnc \
-      openssl-dev \
+      openssl-dev openssl \
       supervisor \
       curl axel \
       zip unzip \
@@ -66,12 +79,16 @@ RUN \
     # Install noVNC
     git clone --depth 1 https://github.com/novnc/noVNC.git $HOME/noVNC && \
     git clone --depth 1 https://github.com/novnc/websockify $HOME/noVNC/utils/websockify && \
-    echo "nobody ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/nobody && \
+    echo "nobody ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
     rm -rf $HOME/noVNC/.git && \
     rm -rf $HOME/noVNC/utils/websockify/.git && \
     apk del git && \
     sed -i -- "s/ps -p/ps -o pid | grep/g" $HOME/noVNC/utils/novnc_proxy
 
+
+ADD styles/Cilia/Fluxbox-config/init /home/nobody/.fluxbox/init
+ADD styles/Cilia/Fluxbox-config/keys /home/nobody/.fluxbox/keys
+ADD styles/Cilia/Fluxbox-config/menu /home/nobody/.fluxbox/menu
 
 EXPOSE 5900
 EXPOSE 6080
