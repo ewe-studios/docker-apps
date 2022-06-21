@@ -98,6 +98,7 @@ EXPOSE 5900
 EXPOSE 6080
 
 WORKDIR /home/nobody
+RUN chown -R nobody:nobody /home/nobody
 
 # run script to set uid, gid and permissions
 CMD ["/entrypoint.sh"]
