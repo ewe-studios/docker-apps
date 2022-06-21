@@ -60,9 +60,13 @@ RUN \
     apk --no-cache --update --upgrade add \
       tzdata \
       bash \
+      tree \
+      file \
+      grep \
+      vim nano \
       fluxbox \
-      git \
-      ttf-dejavu \
+      git dunst hsetroot \
+      ttf-dejavu font-noto ttf-dejavu ttf-liberation \
       compton \
       xterm \
       sudo \
