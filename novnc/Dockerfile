@@ -15,7 +15,6 @@ RUN \
       coreutils libxml2 libarchive python3 nodejs sqlite mariadb-client \
       lftp \
       make \
-      thunar \
       git
 
 
