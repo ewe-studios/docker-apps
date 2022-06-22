@@ -7,7 +7,6 @@ addgroup -g "$GUID" nobody
 
 # setup env for user nobody
 mkdir -p '/home/nobody'
-chown -R nobody:nobody '/home/nobody'
 
 adduser -G nobody -u "$PUID" -s /bin/bash --home /home/nobody nobody
 

@@ -65,7 +65,8 @@ RUN \
       tree \
       file \
       grep \
-      vim nano urxvt thunar \
+      vim nano \
+      rxvt-unicode thunar \
       fluxbox \
       git dunst hsetroot \
       ttf-dejavu font-noto ttf-dejavu ttf-liberation \
