@@ -29,6 +29,7 @@ ENV DISPLAY=:0 \
 
 # add pre-configured config files for deluge
 ADD config/nobody/ /home/nobody/
+ADD styles/themes/pkgs /home/nobody/.themes
 ADD styles/Cilia/GTK2/Cilia_original /home/nobody/.themes/Cilia_original
 ADD styles/Cilia/compton/compton.conf /home/nobody/.config/compton/compton.conf
 ADD styles/Cilia/compton/compton.conf /home/nobody/.compton.conf
@@ -38,6 +39,7 @@ ADD styles/Cilia/Bash/Xdefaults /home/nobody/.Xdefaults
 ADD styles/Cilia/Bash/Xdefaults /home/nobody/Xdefaults
 ADD styles/Cilia/Bash/ls++.conf /home/nobody/config/ls++/ls++.conf
 ADD styles/Cilia/Bash/dircolors /home/nobody/dircolors
+ADD styles/Cilia/icons /home/nobody/.icons
 ADD config/supervisord /etc/supervisord
 ADD config/supervisord.conf /etc/supervisord.conf
 ADD entrypoint.sh /entrypoint.sh
@@ -63,7 +65,7 @@ RUN \
       tree \
       file \
       grep \
-      vim nano \
+      vim nano urxvt thunar \
       fluxbox \
       git dunst hsetroot \
       ttf-dejavu font-noto ttf-dejavu ttf-liberation \
@@ -84,12 +86,15 @@ RUN \
     git clone --depth 1 https://github.com/novnc/noVNC.git $HOME/noVNC && \
     git clone --depth 1 https://github.com/novnc/websockify $HOME/noVNC/utils/websockify && \
     echo "nobody ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+    echo "%wheel ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
     rm -rf $HOME/noVNC/.git && \
     rm -rf $HOME/noVNC/utils/websockify/.git && \
     apk del git && \
     sed -i -- "s/ps -p/ps -o pid | grep/g" $HOME/noVNC/utils/novnc_proxy
 
 
+ADD styles/Cilia/Fluxbox-style/Cilia /home/nobody/.fluxbox/styles/Cilia
+ADD styles/Cilia/Fluxbox-style/Tourmente /home/nobody/.fluxbox/styles/Tourmente
 ADD styles/Cilia/Fluxbox-config/init /home/nobody/.fluxbox/init
 ADD styles/Cilia/Fluxbox-config/keys /home/nobody/.fluxbox/keys
 ADD styles/Cilia/Fluxbox-config/menu /home/nobody/.fluxbox/menu

@@ -14,7 +14,8 @@ RUN \
       bash-doc man-db man-pages less less-doc bash-completion \
       coreutils libxml2 libarchive python3 nodejs sqlite mariadb-client \
       lftp \
-      make\
+      make \
+      thunar \
       git
 
 

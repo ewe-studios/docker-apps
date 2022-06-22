@@ -66,7 +66,8 @@ sudo chown  $PUID:$GUID /home/nobody/Lab
 
 # set localtime
 sudo cp /usr/share/zoneinfo/$TZ /etc/localtime
-sudo echo "$TZ" > /etc/timezone
+echo "$TZ" | sudo tee /etc/timezone
+
 date
 
 # set password for tigervnc/Xvnc
