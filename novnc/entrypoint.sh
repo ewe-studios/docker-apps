@@ -61,8 +61,12 @@
 #@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@#
 ###############################################################
 
-sudo chown -R $PUID:$GUID /home/nobody/.idea
-sudo chown  $PUID:$GUID /home/nobody/Lab
+#sudo chown -R $PUID:$GUID /home/nobody/.idea
+#sudo chown  $PUID:$GUID /home/nobody/Lab
+
+#echo "${PUID} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+#echo "%${GUID} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+# /etc/password: darkvoid:x:1000:1000:Alexander:/home/darkvoid:/bin/bash
 
 # set localtime
 sudo cp /usr/share/zoneinfo/$TZ /etc/localtime
@@ -77,4 +81,4 @@ echo -e "${VNC_PASSWORD}\n${VNC_PASSWORD}\nn" | vncpasswd 1>&- 2>&-
 x11vnc -storepasswd "${VNC_PASSWORD}" /home/nobody/x11_password
 
 # start application
-/usr/bin/supervisord -c /etc/supervisord.conf
+gosu novnc:novnc /usr/bin/supervisord -c /etc/supervisord.conf

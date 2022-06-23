@@ -1,21 +1,23 @@
 #!/bin/bash
 
-# add user "nobody" to primary group "users" (will remove any other group membership)
-addgroup sudo
-addgroup users
-addgroup -g "$GUID" nobody
+# add user "novnc" to primary group "users" (will remove any other group membership)
+addgroup -g 1001 sudo
+addgroup -g 1002 users
 
-# setup env for user nobody
-mkdir -p '/home/nobody'
+addgroup -g "$GUID" novnc
 
-adduser -G nobody -u "$PUID" -s /bin/bash --home /home/nobody nobody
+# setup env for user novnc
+mkdir -p '/home/novnc'
+adduser -D -G novnc -u "$PUID" -s /bin/bash --home /home/novnc novnc
 
-# add user "nobody" to secondary group "nobody" (will retain primary membership)
-adduser nobody nobody
-adduser nobody users
-adduser nobody sudo
-adduser nobody video
-adduser nobody input
+# add user "novnc" to secondary group "novnc" (will retain primary membership)
+adduser novnc novnc
+adduser novnc users
+adduser novnc sudo
+adduser novnc video
+adduser novnc input
+
+chown novnc:novnc /home/novnc
 
 # change permission of folders
 chown -R root:users /tmp/
@@ -27,5 +29,5 @@ echo "$TZ" > /etc/timezone
 chmod 0775 /etc/timezone
 chmod 0775 /etc/localtime
 
-# set shell for user nobody
-export HOME=/home/nobody
+# set shell for user novnc
+export HOME=/home/novnc

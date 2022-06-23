@@ -43,5 +43,7 @@ ENV JDK18=/usr/lib/jvm/java-1.8-openjdk \
     IDEA_JDK=/usr/lib/jvm/java-11-openjdk \
     PATH="/usr/lib/jvm/java-1.8-openjdk/bin/:$PATH"
 
+USER novnc
+
 # run script to set uid, gid and permissions
 CMD ["/entrypoint.sh"]

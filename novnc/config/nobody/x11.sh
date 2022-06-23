@@ -13,4 +13,4 @@ fi
 
 sleep 1
 
-/usr/bin/x11vnc -ncache 10  x11vnc -rfbauth /home/nobody/x11_password
+/usr/bin/x11vnc -ncache 10  x11vnc -rfbauth /home/novnc/x11_password
