@@ -112,7 +112,7 @@ EXPOSE 5900
 EXPOSE 6080
 
 WORKDIR /home/novnc
-RUN chown novnc:novnc /home/novnc && \
+RUN chown -R novnc:novnc /home/novnc && \
     chmod +x /entrypoint.sh
 
 # run script to set uid, gid and permissions
