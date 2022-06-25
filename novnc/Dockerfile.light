@@ -56,7 +56,7 @@ RUN \
       fluxbox \
       git dunst hsetroot \
       ttf-dejavu font-noto ttf-dejavu ttf-liberation \
-      compton \
+      compton  \
       xterm \
       sudo gosu shadow \
       tigervnc \
