@@ -33,9 +33,9 @@ chmod 0775 /etc/localtime
 export HOME=/home/novnc
 
 git clone https://github.com/forkkit/ls--.git
-pushd ls--
+cd ls--
 perl Makefile.PL
 make
 make install
-popd
+cd -
 rm -rf ls--
