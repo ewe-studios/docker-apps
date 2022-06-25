@@ -26,25 +26,29 @@ RUN set -ex && \
 #        tar -xf ideaIC-2020.3.1-no-jbr.tar.gz && \
 #        rm ideaIC-2020.3.1-no-jbr.tar.gz
 
+ENV NVC_HOME /home/novnc
+
 # Add our properties files
 ADD 03-intellij.conf /etc/supervisord/
-ADD intellij.sh $HOME/intellij.sh
-ADD licenses $HOME/licenses
-ADD idea.properties $HOME/idea-IU-221.5787.30/bin/idea.properties
+ADD intellij.sh $NVC_HOME/intellij.sh
+ADD licenses $NVC_HOME/licenses
+ADD idea.properties $NVC_HOME/idea-IU-221.5787.30/bin/idea.properties
+ADD idea.properties $NVC_HOME/.idea.properties
 
 # Set additional environment variables
 ENV JDK18=/usr/lib/jvm/java-1.8-openjdk \
     JDK11=/usr/lib/jvm/java-11-openjdk \
-    IDEAU_HOME=$HOME/idea-IU-221.5787.30 \
-    IDEAU_BIN=$HOME/idea-IU-221.5787.30/bin/idea.sh \
+    IDEAU_HOME=$NVC_HOME/idea-IU-221.5787.30 \
+    IDEAU_BIN=$NVC_HOME/idea-IU-221.5787.30/bin/idea.sh \
     JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk \
     JDK_HOME=/usr/lib/jvm/java-1.8-openjdk \
     JAVA_EXE=/usr/lib/jvm/java-1.8-openjdk/bin/java \
     PYCHARM_JDK=/usr/lib/jvm/java-11-openjdk \
     IDEA_JDK=/usr/lib/jvm/java-11-openjdk \
+    IDEA_PROPERTIES=$NVC_HOME/.idea.properties \
     PATH="/usr/lib/jvm/java-1.8-openjdk/bin/:$PATH"
 
-RUN chmod +x $HOME/intellij.sh
+RUN chmod +x $NVC_HOME/intellij.sh
 
 VOLUME ["/home/novnc/.idea"]
 

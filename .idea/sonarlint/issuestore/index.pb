@@ -64,5 +64,3 @@ d
 Makefile,8/3/836efb6e25a091dcb4ff8e1dbb2f0be6a5cbf14c
 I
 intellij/03-intellij.conf,a/f/af1b6e444d8d8690997ad85a920c945c0d911b92
-E
-intellij/intellij.iml,6/3/631c20020cee93b276989e76fce7dca08b3d6984
