@@ -50,7 +50,7 @@ RUN \
       tree \
       file \
       grep \
-      perl cpan \
+      perl perl-utils \
       vim nano \
       rxvt-unicode thunar \
       fluxbox \
