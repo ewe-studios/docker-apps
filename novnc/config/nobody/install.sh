@@ -32,6 +32,8 @@ chmod 0775 /etc/localtime
 # set shell for user novnc
 export HOME=/home/novnc
 
+curl -L https://cpanmin.us | perl - --sudo App::cpanminus
+cpanm Term::ExtendedColor File::LsColor
 git clone https://github.com/forkkit/ls--.git
 cd ls--
 perl Makefile.PL
