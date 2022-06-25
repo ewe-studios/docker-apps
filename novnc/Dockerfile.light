@@ -38,6 +38,7 @@ RUN \
     mkdir -p /home/novnc && \
     mkdir -p /home/novnc/Lab && \
     mkdir -p /home/novnc/.idea && \
+    mkdir -p /home/novnc/.java && \
     mkdir -p /home/novnc/logs/supervisord && \
     mkdir -p /home/.fluxbox/styles && \
     mkdir -p /var/logs/supervisord/ && \

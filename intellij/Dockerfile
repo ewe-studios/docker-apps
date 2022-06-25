@@ -48,7 +48,8 @@ ENV JDK18=/usr/lib/jvm/java-1.8-openjdk \
     IDEA_PROPERTIES=$NVC_HOME/.idea.properties \
     PATH="/usr/lib/jvm/java-1.8-openjdk/bin/:$PATH"
 
-RUN chmod +x $NVC_HOME/intellij.sh
+RUN chmod +x $NVC_HOME/intellij.sh && \
+    chown -R novnc:novnc $NVC_HOME/.idea.properties
 
 VOLUME ["/home/novnc/.idea"]
 
