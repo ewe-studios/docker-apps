@@ -12,8 +12,8 @@ RUN set -ex && \
 RUN set -ex && \
     # Install IntelliJ Ultimate
     cd $HOME && \
-    wget https://download-cdn.jetbrains.com/idea/ideaIU-2022.1.2.tar.gz && \
-    tar -xf ideaIU-2022.1.2.tar.gz && \
+    sudo -H -u novnc wget https://download-cdn.jetbrains.com/idea/ideaIU-2022.1.2.tar.gz && \
+    sudo -H -u novnc tar -xf ideaIU-2022.1.2.tar.gz && \
     rm ideaIU-2022.1.2.tar.gz && \
     mkdir -p $HOME/.idea/config && \
     mkdir -p $HOME/.idea/plugins && \
