@@ -58,9 +58,5 @@ L
 0novnc/styles/Cilia/Fluxbox-style/Cilia/theme.cfg,a/4/a4ee9eff1a01d1410724fc4f72dcdeb402b48e49
 d
 4novnc/styles/Cilia/Fluxbox-style/Tourmente/theme.cfg,9/1/914d4745c6548e4697e46f916f4545592679afa7
->
-novnc/Makefile,e/3/e3bb440b4f3b307b9392a9d844af2911937a17f4
 8
 Makefile,8/3/836efb6e25a091dcb4ff8e1dbb2f0be6a5cbf14c
-I
-intellij/03-intellij.conf,a/f/af1b6e444d8d8690997ad85a920c945c0d911b92
