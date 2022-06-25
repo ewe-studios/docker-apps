@@ -40,8 +40,6 @@ Q
 !novnc/styles/Cilia/Bash/ls++.conf,6/f/6fcc5e0754ebc269b4e6a452535ac6d3b32f0084
 Q
 !novnc/styles/Cilia/Bash/Xdefaults,4/a/4a7646c53451ecc4f4c1c0b19b8dfd5ac0c848c9
-M
-novnc/config/supervisord.conf,a/7/a7b522afbf1d1d3b78eed89906744f76155609fc
 Q
 !novnc/styles/Cilia/Bash/dircolors,a/d/ad09e90e5084aab85acc4e932b8e082d67fc10c7
 N
@@ -66,3 +64,5 @@ d
 Makefile,8/3/836efb6e25a091dcb4ff8e1dbb2f0be6a5cbf14c
 I
 intellij/03-intellij.conf,a/f/af1b6e444d8d8690997ad85a920c945c0d911b92
+E
+intellij/intellij.iml,6/3/631c20020cee93b276989e76fce7dca08b3d6984

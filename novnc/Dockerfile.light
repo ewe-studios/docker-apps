@@ -9,7 +9,7 @@ ARG GUID=1000
 # Setup environment variables
 ENV DISPLAY=:0 \
     GUID=$GUID \
-    PUID=$GUID \
+    PUID=$PUID \
     HOME=/home/novnc \
     TERM=xterm \
     LANG=en_US.UTF-8 \
@@ -29,22 +29,7 @@ ENV DISPLAY=:0 \
     LANG=en_GB.UTF-8 \
     VNC_PASSWORD=nobody
 
-# add pre-configured config files for deluge
 ADD config/nobody/ /home/novnc/
-ADD styles/themes/pkgs /home/novnc/.themes
-ADD styles/Cilia/GTK2/Cilia_original /home/novnc/.themes/Cilia_original
-ADD styles/Cilia/compton/compton.conf /home/novnc/.config/compton/compton.conf
-ADD styles/Cilia/compton/compton.conf /home/novnc/.compton.conf
-ADD styles/Cilia/Bash/bashrc /home/novnc/.bashrc
-ADD styles/Cilia/Bash/dircolors /home/novnc/.dircolors
-ADD styles/Cilia/Bash/Xdefaults /home/novnc/.Xdefaults
-ADD styles/Cilia/Bash/Xdefaults /home/novnc/Xdefaults
-ADD styles/Cilia/Bash/ls++.conf /home/novnc/config/ls++/ls++.conf
-ADD styles/Cilia/Bash/dircolors /home/novnc/dircolors
-ADD styles/Cilia/icons /home/novnc/.icons
-ADD config/supervisord /etc/supervisord
-ADD config/supervisord.conf /etc/supervisord.conf
-ADD entrypoint.sh /entrypoint.sh
 
 # install app
 #############
@@ -57,7 +42,6 @@ RUN \
     mkdir -p /home/.fluxbox/styles && \
     mkdir -p /var/logs/supervisord/ && \
     # Install required packages
-    chmod +x /entrypoint.sh && \
     chmod +x /home/novnc/*.sh && \
     sh /home/novnc/install.sh && \
     echo "http://dl-3.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
@@ -74,7 +58,7 @@ RUN \
       ttf-dejavu font-noto ttf-dejavu ttf-liberation \
       compton \
       xterm \
-      sudo gosu \
+      sudo gosu shadow \
       tigervnc \
       openssl-dev openssl \
       supervisor \
@@ -100,17 +84,35 @@ RUN \
     sed -i -- "s/ps -p/ps -o pid | grep/g" $HOME/noVNC/utils/novnc_proxy
 
 
+# add pre-configured config files for deluge
+ADD styles/themes/pkgs /home/novnc/.themes
+ADD styles/Cilia/GTK2/Cilia_original /home/novnc/.themes/Cilia_original
+ADD styles/Cilia/compton/compton.conf /home/novnc/.config/compton/compton.conf
+ADD styles/Cilia/compton/compton.conf /home/novnc/.compton.conf
+ADD styles/Cilia/Bash/bashrc /home/novnc/.bashrc
+ADD styles/Cilia/Bash/dircolors /home/novnc/.dircolors
+ADD styles/Cilia/Bash/Xdefaults /home/novnc/.Xdefaults
+ADD styles/Cilia/Bash/Xdefaults /home/novnc/Xdefaults
+ADD styles/Cilia/Bash/ls++.conf /home/novnc/config/ls++/ls++.conf
+ADD styles/Cilia/Bash/dircolors /home/novnc/dircolors
+ADD styles/Cilia/icons /home/novnc/.icons
+ADD config/supervisord /etc/supervisord
+ADD config/supervisord.conf /etc/supervisord.conf
 ADD styles/Cilia/Fluxbox-style/Cilia /home/novnc/.fluxbox/styles/Cilia
 ADD styles/Cilia/Fluxbox-style/Tourmente /home/novnc/.fluxbox/styles/Tourmente
 ADD styles/Cilia/Fluxbox-config/init /home/novnc/.fluxbox/init
 ADD styles/Cilia/Fluxbox-config/keys /home/novnc/.fluxbox/keys
 ADD styles/Cilia/Fluxbox-config/menu /home/novnc/.fluxbox/menu
 
+
+ADD entrypoint.sh /entrypoint.sh
+
 EXPOSE 5900
 EXPOSE 6080
 
 WORKDIR /home/novnc
-RUN chown novnc:novnc /home/novnc
+RUN chown novnc:novnc /home/novnc && \
+    chmod +x /entrypoint.sh
 
 # run script to set uid, gid and permissions
 CMD ["/entrypoint.sh"]

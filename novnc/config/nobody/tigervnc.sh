@@ -16,4 +16,5 @@ elif [ "${DISPLAY_MAX}" = "-1" ]; then
   command="Xvnc ${DISPLAY} -depth ${DISPLAY_DEPTH} ${OTHER_ARGS}"
 fi
 
+echo "executing command: ${command}";
 eval "${command}"
