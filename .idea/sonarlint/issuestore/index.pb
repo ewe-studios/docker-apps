@@ -36,14 +36,6 @@ V
 &novnc/styles/Cilia/Fluxbox-config/keys,7/c/7ce09a5e5b33c516a7d3eae3c6cea424a6856187
 W
 'novnc/styles/Cilia/compton/compton.conf,6/f/6f4e6e3393b96cea896a8dcb1f3c83ce60263d20
-Q
-!novnc/styles/Cilia/Bash/ls++.conf,6/f/6fcc5e0754ebc269b4e6a452535ac6d3b32f0084
-Q
-!novnc/styles/Cilia/Bash/Xdefaults,4/a/4a7646c53451ecc4f4c1c0b19b8dfd5ac0c848c9
-Q
-!novnc/styles/Cilia/Bash/dircolors,a/d/ad09e90e5084aab85acc4e932b8e082d67fc10c7
-N
-novnc/styles/Cilia/Bash/bashrc,c/6/c6d4926da7cdc1646ce7062ac9f8d985952a94cc
 ?
 novnc/README.md,a/f/af3f52d5505a49b3e6433b703bf8e35d48155c58
 C

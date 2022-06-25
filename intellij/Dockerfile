@@ -52,5 +52,7 @@ RUN chmod +x $NVC_HOME/intellij.sh
 
 VOLUME ["/home/novnc/.idea"]
 
+#USER novnc
+
 # run script to set uid, gid and permissions
 CMD ["/entrypoint.sh"]

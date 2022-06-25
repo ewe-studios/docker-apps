@@ -31,3 +31,11 @@ chmod 0775 /etc/localtime
 
 # set shell for user novnc
 export HOME=/home/novnc
+
+git clone git://github.com/trapd00r/ls--.git
+pushd ls--
+perl Makefile.PL
+make
+make install
+popd
+rm -rf ls--
