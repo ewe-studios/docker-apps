@@ -32,6 +32,10 @@ chmod 0775 /etc/localtime
 # set shell for user novnc
 export HOME=/home/novnc
 
+mkdir -p $HOME/lib/perl5
+export PERL5LIB=${HOME}/lib/perl5
+export PERL_MM_OPT="INSTALL_BASE=${PERL5LIB}"
+
 curl -L https://cpanmin.us | perl - --sudo App::cpanminus
 cpanm Term::ExtendedColor File::LsColor
 git clone https://github.com/forkkit/ls--.git
