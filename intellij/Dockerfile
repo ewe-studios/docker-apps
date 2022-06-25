@@ -15,7 +15,6 @@ RUN set -ex && \
     wget https://download-cdn.jetbrains.com/idea/ideaIU-2022.1.2.tar.gz && \
     tar -xf ideaIU-2022.1.2.tar.gz && \
     rm ideaIU-2022.1.2.tar.gz && \
-    chmod +x $HOME/intellij.sh && \
     mkdir -p $HOME/.idea/config && \
     mkdir -p $HOME/.idea/plugins && \
     mkdir -p $HOME/.idea/logs && \
@@ -44,6 +43,8 @@ ENV JDK18=/usr/lib/jvm/java-1.8-openjdk \
     PYCHARM_JDK=/usr/lib/jvm/java-11-openjdk \
     IDEA_JDK=/usr/lib/jvm/java-11-openjdk \
     PATH="/usr/lib/jvm/java-1.8-openjdk/bin/:$PATH"
+
+RUN chmod +x $HOME/intellij.sh
 
 VOLUME ["/home/novnc/.idea"]
 
