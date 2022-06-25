@@ -50,6 +50,7 @@ RUN \
       tree \
       file \
       grep \
+      make \
       perl perl-utils \
       vim nano \
       rxvt-unicode thunar \
