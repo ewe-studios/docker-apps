@@ -15,10 +15,10 @@ RUN set -ex && \
     sudo -H -u novnc wget https://download-cdn.jetbrains.com/idea/ideaIU-2022.1.2.tar.gz && \
     sudo -H -u novnc tar -xf ideaIU-2022.1.2.tar.gz && \
     rm ideaIU-2022.1.2.tar.gz && \
-    mkdir -p $HOME/.idea/config && \
-    mkdir -p $HOME/.idea/plugins && \
-    mkdir -p $HOME/.idea/logs && \
-    mkdir -p $HOME/.idea/system
+    sudo -H -u novnc mkdir -p $HOME/.idea/config && \
+    sudo -H -u novnc mkdir -p $HOME/.idea/plugins && \
+    sudo -H -u novnc mkdir -p $HOME/.idea/logs && \
+    sudo -H -u novnc mkdir -p $HOME/.idea/system
 
 # Install IntelliJ Community
 #RUN set -ex && \
@@ -49,6 +49,9 @@ ENV JDK18=/usr/lib/jvm/java-1.8-openjdk \
     PATH="/usr/lib/jvm/java-1.8-openjdk/bin/:$PATH"
 
 RUN chmod +x $NVC_HOME/intellij.sh && \
+    chown -R novnc:novnc $NVC_HOME/intellij.sh && \
+    chown -R novnc:novnc $NVC_HOME/licenses && \
+    chown -R novnc:novnc $NVC_HOME/idea-IU-221.5787.30/bin/idea.properties && \
     chown -R novnc:novnc $NVC_HOME/.idea.properties
 
 VOLUME ["/home/novnc/.idea"]
