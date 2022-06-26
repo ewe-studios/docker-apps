@@ -69,8 +69,8 @@
 # /etc/password: darkvoid:x:1000:1000:Alexander:/home/darkvoid:/bin/bash
 env
 
-groupmod -g $GUID novnc
-usermod -u $PUID novnc
+sudo groupmod -g $GUID novnc
+sudo usermod -u $PUID novnc
 
 # set localtime
 sudo cp /usr/share/zoneinfo/$TZ /etc/localtime
@@ -82,7 +82,7 @@ date
 echo -e "${VNC_PASSWORD}\n${VNC_PASSWORD}\nn" | vncpasswd 1>&- 2>&-
 
 # set password for x11vnc
-x11vnc -storepasswd "${VNC_PASSWORD}" /home/novnc/x11_password
+sudo -H -u novnc x11vnc -storepasswd "${VNC_PASSWORD}" /home/novnc/x11_password
 
 # start application
 /usr/bin/supervisord -c /etc/supervisord.conf
