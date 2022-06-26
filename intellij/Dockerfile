@@ -46,6 +46,15 @@ ENV JDK18=/usr/lib/jvm/java-1.8-openjdk \
     PYCHARM_JDK=/usr/lib/jvm/java-11-openjdk \
     IDEA_JDK=/usr/lib/jvm/java-11-openjdk \
     IDEA_PROPERTIES=$NVC_HOME/.idea.properties \
+    CLION_PROPERTIES=$NVC_HOME/.idea.properties \
+    APPCODE_PROPERTIES=$NVC_HOME/.idea.properties \
+    PYCHARM_PROPERTIES=$NVC_HOME/.idea.properties \
+    DATAGRIP_PROPERTIES=$NVC_HOME/.idea.properties \
+    STUDIO_PROPERTIES=$NVC_HOME/.idea.properties \
+    WEBIDE_PROPERTIES=$NVC_HOME/.idea.properties \
+    PHPSTORM_PROPERTIES=$NVC_HOME/.idea.properties \
+    GOLAND_PROPERTIES=$NVC_HOME/.idea.properties \
+    RIDER_PROPERTIES=$NVC_HOME/.idea.properties \
     PATH="/usr/lib/jvm/java-1.8-openjdk/bin/:$PATH"
 
 RUN chmod +x $NVC_HOME/intellij.sh && \
