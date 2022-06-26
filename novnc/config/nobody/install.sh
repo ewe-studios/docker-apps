@@ -38,6 +38,7 @@ export PERL_MM_OPT="INSTALL_BASE=${PERL5LIB}"
 
 curl -L https://cpanmin.us | perl - --sudo App::cpanminus
 cpanm Term::ExtendedColor File::LsColor
+cpan Term::ExtendedColor File::LsColor
 git clone https://github.com/forkkit/ls--.git
 cd ls--
 perl Makefile.PL
