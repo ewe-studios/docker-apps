@@ -107,6 +107,7 @@ ADD styles/Cilia/Fluxbox-style/Tourmente /home/novnc/.fluxbox/styles/Tourmente
 ADD styles/Cilia/Fluxbox-config/init /home/novnc/.fluxbox/init
 ADD styles/Cilia/Fluxbox-config/keys /home/novnc/.fluxbox/keys
 ADD styles/Cilia/Fluxbox-config/menu /home/novnc/.fluxbox/menu
+ADD ssl /home/novnc/ssl
 
 
 ADD entrypoint.sh /entrypoint.sh
