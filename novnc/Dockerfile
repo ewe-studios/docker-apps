@@ -16,7 +16,7 @@ RUN \
       lftp dropbear util-linux pciutils usbutils coreutils binutils findutils grep iproute2 \
       make google-authenticator openssh-server-pam \
       git && \
-      pip install websockify pxdg numpy
+      python3 -m pip install websockify pxdg numpy
 
 
 EXPOSE 5900
