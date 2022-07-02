@@ -16,6 +16,8 @@ RUN \
       lftp dropbear util-linux pciutils usbutils coreutils binutils findutils grep iproute2 \
       make google-authenticator openssh-server-pam \
       git && \
+      mkdir -p $HOME/.cache/pip && \
+      chown -R novnc:novnc $HOME/.cache/pip && \
       pip install websockify pxdg numpy
 
 
