@@ -81,6 +81,9 @@ date
 # set password for tigervnc/Xvnc
 echo -e "${VNC_PASSWORD}\n${VNC_PASSWORD}\nn" | vncpasswd 1>&- 2>&-
 
+export PYTHONPATH="$HOME/.cache/pip:$PYTHONPATH"
+export PATH="$HOME/.cache/pip/bin:$PATH"
+
 # set password for x11vnc
 sudo -H -u novnc x11vnc -storepasswd "${VNC_PASSWORD}" /home/novnc/x11_password
 
