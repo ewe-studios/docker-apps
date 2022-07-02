@@ -15,7 +15,8 @@ RUN \
       coreutils libxml2 libarchive python3 nodejs sqlite mariadb-client \
       lftp dropbear util-linux pciutils usbutils coreutils binutils findutils grep iproute2 \
       make google-authenticator openssh-server-pam \
-      git
+      git && \
+      pip install websockify pxdg numpy
 
 
 EXPOSE 5900
