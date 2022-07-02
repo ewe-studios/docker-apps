@@ -116,6 +116,7 @@ EXPOSE 6080
 
 WORKDIR /home/novnc
 RUN chown -R novnc:novnc /home/novnc && \
+    echo "fs.inotify.max_user_watches = 524288" >> /etc/sysctl.conf && \
     chmod +x /entrypoint.sh
 
 # run script to set uid, gid and permissions
