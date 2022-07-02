@@ -66,7 +66,7 @@ RUN \
       openssl-dev openssl \
       supervisor \
       curl axel autocutsel \
-      zip unzip \
+      zip unzip feh \
       tar xz copyq alacritty terminator yakuake pcmanfm \
       xvfb \
       xvfb-run \
