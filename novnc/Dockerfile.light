@@ -62,6 +62,7 @@ RUN \
       xterm \
       sudo gosu shadow \
       tigervnc \
+      openssh \
       openssl-dev openssl \
       supervisor \
       curl axel \
