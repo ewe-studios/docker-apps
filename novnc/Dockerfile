@@ -17,7 +17,7 @@ RUN \
       make google-authenticator openssh-server-pam \
       git && \
       mkdir -p $HOME/.cache/pip && \
-      chown -R novnc:novnc $HOME/.cache/pip && \
+      chown -R novnc:novnc $HOME/.cache && \
       pip install websockify pxdg numpy
 
 
