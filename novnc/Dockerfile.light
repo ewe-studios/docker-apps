@@ -115,8 +115,9 @@ EXPOSE 5900
 EXPOSE 6080
 
 WORKDIR /home/novnc
-RUN chown -R novnc:novnc /home/novnc && \
-    echo "fs.inotify.max_user_watches = 524288" >> /etc/sysctl.conf && \
+RUN chown -R novnc:novnc /home/novnc \
+
+RUN echo "fs.inotify.max_user_watches = 524288" >> /etc/sysctl.conf && \
     sysctl -p --system && \
     chmod +x /entrypoint.sh
 
