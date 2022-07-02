@@ -61,7 +61,8 @@ RUN chmod +x $NVC_HOME/intellij.sh && \
     chown -R novnc:novnc $NVC_HOME/intellij.sh && \
     chown -R novnc:novnc $NVC_HOME/licenses && \
     chown -R novnc:novnc $NVC_HOME/idea-IU-221.5787.30/bin/idea.properties && \
-    chown -R novnc:novnc $NVC_HOME/.idea.properties
+    chown -R novnc:novnc $NVC_HOME/.idea.properties && \
+    echo "fs.inotify.max_user_watches = 524288" >> /etc/sysctl.conf
 
 VOLUME ["/home/novnc/.idea"]
 
