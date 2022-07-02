@@ -18,7 +18,7 @@ RUN \
       git && \
       mkdir -p $HOME/.cache/pip && \
       chown -R novnc:novnc $HOME/.cache && \
-      pip install websockify pxdg numpy
+      pip install websockify pyxdg numpy
 
 
 EXPOSE 5900
