@@ -17,4 +17,9 @@ elif [ "${DISPLAY_MAX}" = "-1" ]; then
 fi
 
 echo "executing command: ${command}";
+
+# start tigervnc clipboard manager
+#vncconfig -nowin &
+
+# start tigervnc itself
 eval "${command}"

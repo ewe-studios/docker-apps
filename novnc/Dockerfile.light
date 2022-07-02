@@ -65,9 +65,9 @@ RUN \
       openssh \
       openssl-dev openssl \
       supervisor \
-      curl axel \
+      curl axel autocutsel \
       zip unzip \
-      tar xz \
+      tar xz copyq alacritty terminator yakuake pcmanfm \
       xvfb \
       xvfb-run \
       x11vnc \
@@ -119,7 +119,8 @@ WORKDIR /home/novnc
 RUN chown -R novnc:novnc /home/novnc
 
 RUN echo "fs.inotify.max_user_watches = 524288" >> /etc/sysctl.conf && \
-    sysctl -p --system && \
+    sysctl -p && \
+    fluxbox-generate_menu && \
     chmod +x /entrypoint.sh
 
 # run script to set uid, gid and permissions
