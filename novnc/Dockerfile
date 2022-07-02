@@ -13,9 +13,13 @@ RUN \
       shadow libgcrypt linux-pam binutils gdb musl strace \
       bash-doc man-db man-pages less less-doc bash-completion \
       coreutils libxml2 libarchive python3 py3-pip nodejs sqlite mariadb-client \
+      e2fsprogs-libs llvm libpthread-stubs  automake gfortran subversion python3-dev \
+      libxtst libxrender \
+      cmake g++ gcc gcc-objc e2fsprogs e2fsprogs-extra \
+      e2fsprogs-libs llvm libpthread-stubs  automake gfortran subversion python3-dev \
+      gradle tk openjdk8 openjdk11 rust rustup midori \
       lftp dropbear util-linux pciutils usbutils coreutils binutils findutils grep iproute2 \
-      make google-authenticator openssh-server-pam \
-      git && \
+      make google-authenticator openssh-server-pam git && \
       mkdir -p $HOME/.cache/pip && \
       chown -R novnc:novnc $HOME/.cache && \
       sudo -H -u novnc pip install websockify pyxdg numpy

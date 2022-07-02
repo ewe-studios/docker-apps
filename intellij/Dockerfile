@@ -4,10 +4,7 @@ MAINTAINER "Alexander Ewetumo <alex.ewetumo@gmail.com>"
 ENV HOME /home/novnc
 
 RUN set -ex && \
-    apk --no-cache --update add libxtst libxrender \
-    cmake g++ gcc gcc-objc e2fsprogs e2fsprogs-extra \
-    e2fsprogs-libs llvm libpthread-stubs  automake gfortran subversion python3-dev \
-    gradle tk openjdk8 openjdk11 rust rustup midori
+    apk --no-cache --update add midori
 
 RUN set -ex && \
     # Install IntelliJ Ultimate
