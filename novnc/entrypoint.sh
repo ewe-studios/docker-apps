@@ -84,6 +84,15 @@ echo -e "${VNC_PASSWORD}\n${VNC_PASSWORD}\nn" | vncpasswd 1>&- 2>&-
 export PYTHONPATH="$HOME/.cache/pip:$PYTHONPATH"
 export PATH="$HOME/.cache/pip/bin:$PATH"
 
+eval $(ssh-agent)
+if [ -d /home/novnc/.ssh/ ]; then
+  sudo chown -R $PUID:$GUID "/home/novnc/.ssh"
+fi
+
+if [ -f /home/novnc/.ssh/id_rsa ]; then
+  ssh-add /home/novnc/.ssh/id_rsa
+fi
+
 # set password for x11vnc
 sudo -H -u novnc x11vnc -storepasswd "${VNC_PASSWORD}" /home/novnc/x11_password
 
