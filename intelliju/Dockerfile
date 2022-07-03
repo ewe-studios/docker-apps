@@ -33,13 +33,13 @@ ADD idea.properties $NVC_HOME/idea-IU-221.5787.30/bin/idea.properties
 ADD idea.properties $NVC_HOME/.idea.properties
 
 # Set additional environment variables
-ENV JDK18=/usr/lib/jvm/java-1.8-openjdk \
+ENV JDK18=/usr/lib/jvm/java-11-openjdk \
     JDK11=/usr/lib/jvm/java-11-openjdk \
     IDEAU_HOME=$NVC_HOME/idea-IU-221.5787.30 \
     IDEAU_BIN=$NVC_HOME/idea-IU-221.5787.30/bin/idea.sh \
-    JAVA_HOME=/usr/lib/jvm/java-1.8-openjdk \
-    JDK_HOME=/usr/lib/jvm/java-1.8-openjdk \
-    JAVA_EXE=/usr/lib/jvm/java-1.8-openjdk/bin/java \
+    JAVA_HOME=/usr/lib/jvm/java-11-openjdk \
+    JDK_HOME=/usr/lib/jvm/java-11-openjdk \
+    JAVA_EXE=/usr/lib/jvm/java-11-openjdk/bin/java \
     PYCHARM_JDK=/usr/lib/jvm/java-11-openjdk \
     IDEA_JDK=/usr/lib/jvm/java-11-openjdk \
     IDEA_PROPERTIES=$NVC_HOME/.idea.properties \
@@ -52,7 +52,7 @@ ENV JDK18=/usr/lib/jvm/java-1.8-openjdk \
     PHPSTORM_PROPERTIES=$NVC_HOME/.idea.properties \
     GOLAND_PROPERTIES=$NVC_HOME/.idea.properties \
     RIDER_PROPERTIES=$NVC_HOME/.idea.properties \
-    PATH="/usr/lib/jvm/java-1.8-openjdk/bin/:$PATH"
+    PATH="/usr/lib/jvm/java-11-openjdk/bin/:$PATH"
 
 RUN chmod +x $NVC_HOME/intellij.sh && \
     chown -R novnc:novnc $NVC_HOME/intellij.sh && \
