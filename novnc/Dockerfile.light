@@ -125,7 +125,7 @@ RUN chown -R novnc:novnc /home/novnc
 RUN echo "fs.inotify.max_user_watches = 524288" >> /etc/sysctl.conf && \
     sysctl -p && \
     fluxbox-generate_menu && \
-    chmod +x /entrypoint.sh \
+    chmod +x /entrypoint.sh
 
 ENV JDK11=/usr/lib/jvm/java-11-openjdk \
     JAVA_HOME=/usr/lib/jvm/java-11-openjdk \
