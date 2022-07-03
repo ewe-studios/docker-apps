@@ -14,7 +14,7 @@ RUN \
       bash-doc man-db man-pages less less-doc bash-completion \
       coreutils libxml2 libarchive python3 py3-pip nodejs sqlite mariadb-client \
       e2fsprogs-libs llvm libpthread-stubs  automake gfortran subversion python3-dev \
-      libxtst libxrender \
+      libxtst libxrender perl-digest-md5 lua-md5 \
       cmake g++ gcc gcc-objc e2fsprogs e2fsprogs-extra \
       e2fsprogs-libs llvm libpthread-stubs  automake gfortran subversion python3-dev \
       gradle tk openjdk11 rust rustup midori \

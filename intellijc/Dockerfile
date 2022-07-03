@@ -25,7 +25,6 @@ ENV NVC_HOME /home/novnc
 # Add our properties files
 ADD 03-intellij.conf /etc/supervisord/
 ADD intellij.sh $NVC_HOME/intellij.sh
-ADD licenses $NVC_HOME/licenses
 ADD idea.properties $NVC_HOME/idea-IC-221.5921.22/bin/idea.properties
 ADD idea.properties $NVC_HOME/.idea.properties
 
