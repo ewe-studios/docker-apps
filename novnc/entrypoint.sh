@@ -96,5 +96,10 @@ fi
 # set password for x11vnc
 sudo -H -u novnc x11vnc -storepasswd "${VNC_PASSWORD}" /home/novnc/x11_password
 
+# replace guacamole password with updated values in usermapping
+guaca_password=$(echo "${GUACA_PASSWORD}" | md5)
+sed -i -e "s/{{GUACA_PASSWORD}}/${guaca_password}/g" /home/novnc/guacamole/user-mapping.xml
+sed -i -e "s/{{VNC_PASSWORD}}/${VNC_PASSWORD}/g" /home/novnc/guacamole/user-mapping.xml
+
 # start application
 /usr/bin/supervisord -c /etc/supervisord.conf

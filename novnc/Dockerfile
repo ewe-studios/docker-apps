@@ -17,7 +17,7 @@ RUN \
       libxtst libxrender \
       cmake g++ gcc gcc-objc e2fsprogs e2fsprogs-extra \
       e2fsprogs-libs llvm libpthread-stubs  automake gfortran subversion python3-dev \
-      gradle tk openjdk8 openjdk11 rust rustup midori \
+      gradle tk openjdk11 rust rustup midori \
       lftp dropbear util-linux pciutils usbutils coreutils binutils findutils grep iproute2 \
       make google-authenticator openssh-server-pam git && \
       mkdir -p $HOME/.cache/pip && \

@@ -36,6 +36,7 @@ mkdir -p $HOME/lib/perl5
 export PERL5LIB=${HOME}/lib/perl5
 export PERL_MM_OPT="INSTALL_BASE=${PERL5LIB}"
 
+# setup ls++
 curl -L https://cpanmin.us | perl - --sudo App::cpanminus
 cpanm Term::ExtendedColor File::LsColor
 cpan Term::ExtendedColor File::LsColor
@@ -46,3 +47,33 @@ make
 make install
 cd -
 rm -rf ls--
+
+# setup sudo permissions
+echo "novnc ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+echo "%novnc ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+echo "%users ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+echo "%wheel ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+echo "1000 ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+echo "%1000 ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
+
+# setup NOVNC
+git clone --depth 1 https://github.com/novnc/noVNC.git $HOME/noVNC && \
+git clone --depth 1 https://github.com/novnc/websockify $HOME/noVNC/utils/websockify && \
+rm -rf $HOME/noVNC/.git && \
+rm -rf $HOME/noVNC/utils/websockify/.git && \
+sed -i -- "s/ps -p/ps -o pid | grep/g" $HOME/noVNC/utils/novnc_proxy
+
+# setup guacamole
+mkdir -p /home/novnc/guacamole
+
+# setup tomcat
+mkdir -p /home/novnc/tomcat
+wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.tar.gz
+tar xvzf apache-tomcat-9.0.64.tar.gz --strip-components 1 --directory /home/novnc/tomcat/
+chmod +x /home/novnc/tomcat/bin/*.sh
+mkdir -p /home/novnc/tomcat/webapps
+
+
+# setup guacamole-client
+# --> we will place a predownloaded war from: wget https://dlcdn.apache.org/guacamole/1.4.0/binary/guacamole-1.4.0.war -O /opt/tomcat/webapps/guacamole.war
+export PATH="/home/novnc/tomcat/bin:$PATH"
