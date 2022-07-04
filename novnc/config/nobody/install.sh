@@ -71,7 +71,6 @@ mkdir -p /home/novnc/tomcat
 wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.tar.gz
 tar xvzf apache-tomcat-9.0.64.tar.gz --strip-components 1 --directory /home/novnc/tomcat/
 rm -rf apache-tomcat-9.0.64.tar.gz
-ls /home/novnc/tomcat/
 chmod +x /home/novnc/tomcat/bin/*.sh
 mkdir -p /home/novnc/tomcat/webapps
 
