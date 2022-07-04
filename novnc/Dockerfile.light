@@ -33,7 +33,7 @@ ENV DISPLAY=:0 \
     GUACA_PASSWORD=novnc \
     VNC_PASSWORD=novnc
 
-ADD config/nobody/ /home/novnc/
+COPY --chown=novnc:novnc config/nobody/ /home/novnc/
 
 # install app
 #############
@@ -83,44 +83,44 @@ RUN \
     apk del git
 
 
-# add pre-configured config files for deluge
-ADD config/ssh/sshd_config /etc/ssh/sshd_config
-ADD config/terminator /home/.config/terminator
-ADD styles/themes/pkgs /home/novnc/.themes
-ADD styles/Cilia/GTK2/Cilia_original /home/novnc/.themes/Cilia_original
-ADD styles/Cilia/compton/compton.conf /home/novnc/.config/compton/compton.conf
-ADD styles/Cilia/compton/compton.conf /home/novnc/.compton.conf
-ADD styles/Cilia/Bash/bashrc /home/novnc/.bashrc
-ADD styles/Cilia/Bash/dircolors /home/novnc/.dircolors
-ADD styles/Cilia/Bash/Xdefaults /home/novnc/.Xdefaults
-ADD styles/Cilia/Bash/Xdefaults /home/novnc/Xdefaults
-ADD styles/Cilia/Bash/ls++.conf /home/novnc/config/ls++/ls++.conf
-ADD styles/Cilia/Bash/dircolors /home/novnc/dircolors
-ADD styles/Cilia/icons /home/novnc/.icons
-ADD styles/Cilia/Fluxbox-style/Cilia /home/novnc/.fluxbox/styles/Cilia
-ADD styles/Cilia/Fluxbox-style/Tourmente /home/novnc/.fluxbox/styles/Tourmente
-ADD styles/Cilia/Fluxbox-config/init /home/novnc/.fluxbox/init
-ADD styles/Cilia/Fluxbox-config/keys /home/novnc/.fluxbox/keys
-ADD styles/Cilia/Fluxbox-config/menu /home/novnc/.fluxbox/menu
+# COPY --chown=novnc:novnc pre-configured config files for deluge
+COPY --chown=novnc:novnc config/ssh/sshd_config /etc/ssh/sshd_config
+COPY --chown=novnc:novnc config/terminator /home/.config/terminator
+COPY --chown=novnc:novnc styles/themes/pkgs /home/novnc/.themes
+COPY --chown=novnc:novnc styles/Cilia/GTK2/Cilia_original /home/novnc/.themes/Cilia_original
+COPY --chown=novnc:novnc styles/Cilia/compton/compton.conf /home/novnc/.config/compton/compton.conf
+COPY --chown=novnc:novnc styles/Cilia/compton/compton.conf /home/novnc/.compton.conf
+COPY --chown=novnc:novnc styles/Cilia/Bash/bashrc /home/novnc/.bashrc
+COPY --chown=novnc:novnc styles/Cilia/Bash/dircolors /home/novnc/.dircolors
+COPY --chown=novnc:novnc styles/Cilia/Bash/Xdefaults /home/novnc/.Xdefaults
+COPY --chown=novnc:novnc styles/Cilia/Bash/Xdefaults /home/novnc/Xdefaults
+COPY --chown=novnc:novnc styles/Cilia/Bash/ls++.conf /home/novnc/config/ls++/ls++.conf
+COPY --chown=novnc:novnc styles/Cilia/Bash/dircolors /home/novnc/dircolors
+COPY --chown=novnc:novnc styles/Cilia/icons /home/novnc/.icons
+COPY --chown=novnc:novnc styles/Cilia/Fluxbox-style/Cilia /home/novnc/.fluxbox/styles/Cilia
+COPY --chown=novnc:novnc styles/Cilia/Fluxbox-style/Tourmente /home/novnc/.fluxbox/styles/Tourmente
+COPY --chown=novnc:novnc styles/Cilia/Fluxbox-config/init /home/novnc/.fluxbox/init
+COPY --chown=novnc:novnc styles/Cilia/Fluxbox-config/keys /home/novnc/.fluxbox/keys
+COPY --chown=novnc:novnc styles/Cilia/Fluxbox-config/menu /home/novnc/.fluxbox/menu
 
-# Add ssl files
-ADD ssl /home/novnc/ssl
+# COPY --chown=novnc:novnc ssl files
+COPY --chown=novnc:novnc ssl /home/novnc/ssl
 
-# add guacamole files
-ADD config/supervisord /etc/supervisord
-ADD config/supervisord.conf /etc/supervisord.conf
-ADD config/guacamole/guacamole.properties /home/novnc/guacamole/guacamole.properties
-ADD config/guacamole/user-mapping.xml /home/novnc/guacamole/user-mapping.xml
-ADD config/guacamole/guacamole.war /home/novnc/tomcat/webapps/guacamole.war
+# COPY --chown=novnc:novnc guacamole files
+COPY --chown=novnc:novnc config/supervisord /etc/supervisord
+COPY --chown=novnc:novnc config/supervisord.conf /etc/supervisord.conf
+COPY --chown=novnc:novnc config/guacamole/guacamole.properties /home/novnc/guacamole/guacamole.properties
+COPY --chown=novnc:novnc config/guacamole/user-mapping.xml /home/novnc/guacamole/user-mapping.xml
+COPY --chown=novnc:novnc config/guacamole/guacamole.war /home/novnc/tomcat/webapps/guacamole.war
 
-# Add entrypoint.sh
-ADD entrypoint.sh /entrypoint.sh
+# COPY --chown=novnc:novnc entrypoint.sh
+COPY --chown=novnc:novnc entrypoint.sh /entrypoint.sh
 
 EXPOSE 5900
 EXPOSE 6080
 
 WORKDIR /home/novnc
-RUN chown -R novnc:novnc /home/novnc
+RUN chown -R novnc:novnc /home/novnc/*.sh
 
 RUN echo "fs.inotify.max_user_watches = 524288" >> /etc/sysctl.conf && \
     sysctl -p && \
