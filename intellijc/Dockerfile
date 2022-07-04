@@ -4,7 +4,7 @@ MAINTAINER "Alexander Ewetumo <alex.ewetumo@gmail.com>"
 ENV HOME /home/novnc
 
 RUN set -ex && \
-    apk --no-cache --update add midori
+    apk --no-cache --update COPY midori
 
 RUN set -ex && \
     # Install IntelliJ Ultimate
@@ -22,13 +22,13 @@ RUN set -ex && \
 
 ENV NVC_HOME /home/novnc
 
-# Add our properties files
-ADD --chown=novnc:novnc 03-intellij.conf /etc/supervisord/
-ADD --chown=novnc:novnc intellij.sh $NVC_HOME/intellij.sh
-ADD --chown=novnc:novnc idea.properties $NVC_HOME/idea-IC-221.5921.22/bin/idea.properties
-ADD --chown=novnc:novnc idea.properties $NVC_HOME/.idea.properties
+# COPY our properties files
+COPY --chown=novnc:novnc 03-intellij.conf /etc/supervisord/
+COPY --chown=novnc:novnc intellij.sh $NVC_HOME/intellij.sh
+COPY --chown=novnc:novnc idea.properties $NVC_HOME/idea-IC-221.5921.22/bin/idea.properties
+COPY --chown=novnc:novnc idea.properties $NVC_HOME/.idea.properties
 
-# Set additional environment variables
+# Set COPYitional environment variables
 ENV JDK18=/usr/lib/jvm/java-11-openjdk \
     JDK11=/usr/lib/jvm/java-11-openjdk \
     IDEAU_HOME=$NVC_HOME/idea-IC-221.5921.22 \
