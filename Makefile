@@ -1,5 +1,5 @@
 DIR?=$(shell pwd)
-VERSION?=0.0.3
+VERSION?=0.0.4
 
 build:
 	cd ${DIR}/novnc && make build VERSION=${VERSION} && cd -
