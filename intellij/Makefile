@@ -2,11 +2,11 @@ VERSION?=latest
 HOME?=$(shell $HOME)
 
 buildu:
-	docker build -t influx6/intellij-u:${VERSION} .
+	docker build -f Dockerfile -t influx6/intellij-u:${VERSION} .
 	docker tag influx6/intellij-u:${VERSION} influx6/intellij-u:latest
 
 buildc:
-	docker build -f Dockerfile.intelligc -t influx6/intellij-c:${VERSION} .
+	docker build -f Dockerfile.intellijc -t influx6/intellij-c:${VERSION} .
 	docker tag influx6/intellij-c:${VERSION} influx6/intellij-c:latest
 
 pushu:
