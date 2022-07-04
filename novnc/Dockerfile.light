@@ -33,7 +33,7 @@ ENV DISPLAY=:0 \
     GUACA_PASSWORD=novnc \
     VNC_PASSWORD=novnc
 
-COPY --chown=novnc:novnc config/nobody/ /home/novnc/
+COPY config/nobody/ /home/novnc/
 
 # install app
 #############
