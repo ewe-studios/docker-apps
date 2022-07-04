@@ -9,7 +9,7 @@ if [ -f "/home/novnc/.vnc/passwd" ]; then
   OTHER_ARGS="-PasswordFile /home/novnc/.vnc/passwd"
 fi
 
-command="Xvnc ${DISPLAY} -geometry ${DISPLAY_WIDTH}x${DISPLAY_HEIGHT} -depth ${DISPLAY_DEPTH} ${OTHER_ARGS}"
+command="Xvnc ${DISPLAY} -geometry ${DISPLAY_WIDTH}x${DISPLAY_HEIGHT} -depth ${DISPLAY_DEPTH} ${OTHER_ARGS} --X509Cert /home/novnc/ssl/server.crt --X509Key /home/novnc/ssl/server.key"
 if [ "${DISPLAY_MAX}" = "1" ]; then
   command="Xvnc ${DISPLAY} -geometry ${DISPLAY_WIDTH_MAX}x${DISPLAY_HEIGHT_MAX} -depth ${DISPLAY_DEPTH} ${OTHER_ARGS}"
 elif [ "${DISPLAY_MAX}" = "-1" ]; then
