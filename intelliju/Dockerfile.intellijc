@@ -7,22 +7,16 @@ RUN set -ex && \
     apk --no-cache --update COPY midori
 
 RUN set -ex && \
-    # Install IntelliJ Ultimate
+    # Install IntelliJ Community
     cd $HOME && \
     sudo -H -u novnc wget https://download.jetbrains.com/idea/ideaIC-2022.1.3.tar.gz && \
     sudo -H -u novnc tar -xf ideaIC-2022.1.3.tar.gz && \
-    rm ideaIC-2022.1.3.tar.gz && \
-    sudo -H -u novnc mkdir -p $HOME/.idea/config && \
-    sudo -H -u novnc mkdir -p $HOME/.idea/plugins && \
-    sudo -H -u novnc mkdir -p $HOME/.idea/logs && \
-    sudo -H -u novnc mkdir -p $HOME/.idea/system
-
-# Install IntelliJ Community
-#RUN set -ex && \
+    rm ideaIC-2022.1.3.tar.gz
 
 ENV NVC_HOME /home/novnc
 
 # COPY our properties files
+COPY --chown:novnc:novnc ./idea/ $NVC_HOME/.idea/
 COPY --chown=novnc:novnc 03-intellij.conf /etc/supervisord/
 COPY --chown=novnc:novnc intellij.sh $NVC_HOME/intellij.sh
 COPY --chown=novnc:novnc idea.properties $NVC_HOME/idea-IC-221.5921.22/bin/idea.properties

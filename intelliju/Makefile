@@ -1,15 +1,23 @@
 VERSION?=latest
 HOME?=$(shell $HOME)
 
-build:
+buildu:
 	docker build -t influx6/intellij-u:${VERSION} .
 	docker tag influx6/intellij-u:${VERSION} influx6/intellij-u:latest
 
-push:
+buildc:
+	docker build -f .Dockerfile.intelligc -t influx6/intellij-c:${VERSION} .
+	docker tag influx6/intellij-c:${VERSION} influx6/intellij-c:latest
+
+pushu:
 	docker push influx6/intellij-u:${VERSION}
 	docker push influx6/intellij-u:latest
+
+pushc:
+	docker push influx6/intellij-c:${VERSION}
+	docker push influx6/intellij-c:latest
 
 run:
 	docker run -it --rm -v "${HOME}/Lab/intellij:/home/novnc/.idea:rw" -p 6080:6080 influx6/intellij-u:${VERSION}
 
-deploy: build push
+deploy: buildu buildc pushu pushc

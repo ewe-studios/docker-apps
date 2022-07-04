@@ -64,7 +64,7 @@ rm -rf $HOME/noVNC/utils/websockify/.git && \
 sed -i -- "s/ps -p/ps -o pid | grep/g" $HOME/noVNC/utils/novnc_proxy
 
 # setup guacamole
-mkdir -p /home/novnc/guacamole
+sudo -H -u novnc mkdir -p /home/novnc/guacamole
 
 # setup tomcat
 mkdir -p /home/novnc/tomcat

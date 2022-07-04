@@ -11,17 +11,7 @@ RUN set -ex && \
     cd $HOME && \
     sudo -H -u novnc wget https://download-cdn.jetbrains.com/idea/ideaIU-2022.1.2.tar.gz && \
     sudo -H -u novnc tar -xf ideaIU-2022.1.2.tar.gz && \
-    rm ideaIU-2022.1.2.tar.gz && \
-    sudo -H -u novnc mkdir -p $HOME/.idea/config && \
-    sudo -H -u novnc mkdir -p $HOME/.idea/plugins && \
-    sudo -H -u novnc mkdir -p $HOME/.idea/logs && \
-    sudo -H -u novnc mkdir -p $HOME/.idea/system
-
-# Install IntelliJ Community
-#RUN set -ex && \
-#        wget https://download-cf.jetbrains.com/idea/ideaIC-2020.3.1-no-jbr.tar.gz && \
-#        tar -xf ideaIC-2020.3.1-no-jbr.tar.gz && \
-#        rm ideaIC-2020.3.1-no-jbr.tar.gz
+    rm ideaIU-2022.1.2.tar.gz
 
 ENV NVC_HOME /home/novnc
 
