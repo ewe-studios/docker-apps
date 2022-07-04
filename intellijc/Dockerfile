@@ -23,10 +23,10 @@ RUN set -ex && \
 ENV NVC_HOME /home/novnc
 
 # Add our properties files
-ADD 03-intellij.conf /etc/supervisord/
-ADD intellij.sh $NVC_HOME/intellij.sh
-ADD idea.properties $NVC_HOME/idea-IC-221.5921.22/bin/idea.properties
-ADD idea.properties $NVC_HOME/.idea.properties
+ADD --chown=novnc:novnc 03-intellij.conf /etc/supervisord/
+ADD --chown=novnc:novnc intellij.sh $NVC_HOME/intellij.sh
+ADD --chown=novnc:novnc idea.properties $NVC_HOME/idea-IC-221.5921.22/bin/idea.properties
+ADD --chown=novnc:novnc idea.properties $NVC_HOME/.idea.properties
 
 # Set additional environment variables
 ENV JDK18=/usr/lib/jvm/java-11-openjdk \

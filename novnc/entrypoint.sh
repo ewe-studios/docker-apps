@@ -91,6 +91,7 @@ fi
 
 if [ -f /home/novnc/.ssh/id_rsa ]; then
   ssh-add /home/novnc/.ssh/id_rsa
+  sudo chown -R $PUID:$GUID "/home/novnc/.ssh"
 fi
 
 # set password for x11vnc
