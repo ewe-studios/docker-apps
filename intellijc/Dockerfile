@@ -52,7 +52,6 @@ ENV JDK18=/usr/lib/jvm/java-11-openjdk \
 
 RUN chmod +x $NVC_HOME/intellij.sh && \
     chown -R novnc:novnc $NVC_HOME/intellij.sh && \
-    chown -R novnc:novnc $NVC_HOME/licenses && \
     chown -R novnc:novnc $NVC_HOME/idea-IC-221.5921.22/bin/idea.properties && \
     chown -R novnc:novnc $NVC_HOME/.idea.properties && \
     echo "fs.inotify.max_user_watches = 524288" >> /etc/sysctl.conf
