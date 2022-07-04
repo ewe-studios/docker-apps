@@ -6,7 +6,7 @@ buildu:
 	docker tag influx6/intellij-u:${VERSION} influx6/intellij-u:latest
 
 buildc:
-	docker build -f .Dockerfile.intelligc -t influx6/intellij-c:${VERSION} .
+	docker build -f Dockerfile.intelligc -t influx6/intellij-c:${VERSION} .
 	docker tag influx6/intellij-c:${VERSION} influx6/intellij-c:latest
 
 pushu:
