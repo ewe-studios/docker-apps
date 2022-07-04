@@ -66,7 +66,7 @@ RUN \
       xterm \
       sudo gosu shadow nodejs npm \
       tigervnc openjdk11 \
-      openssh \
+      openssh ca-certificates \
       openssl-dev openssl \
       supervisor \
       curl axel autocutsel \
@@ -105,6 +105,7 @@ COPY --chown=novnc:novnc styles/Cilia/Fluxbox-config/menu /home/novnc/.fluxbox/m
 
 # COPY --chown=novnc:novnc ssl files
 COPY --chown=novnc:novnc ssl /home/novnc/ssl
+COPY ssl/rootCA.crt /usr/local/share/ca-certificates/rootA.crt
 
 # COPY --chown=novnc:novnc guacamole files
 COPY --chown=novnc:novnc config/supervisord /etc/supervisord
@@ -123,6 +124,7 @@ WORKDIR /home/novnc
 RUN chown -R novnc:novnc /home/novnc/*.sh && \
     echo "fs.inotify.max_user_watches = 524288" >> /etc/sysctl.conf && \
     sysctl -p && \
+    update-ca-certificates && \
     fluxbox-generate_menu && \
     chmod +x /entrypoint.sh
 
