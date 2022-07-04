@@ -16,11 +16,12 @@ RUN set -ex && \
 ENV NVC_HOME /home/novnc
 
 # Add our properties files
-ADD 03-intellij.conf /etc/supervisord/
-ADD intellij.sh $NVC_HOME/intellij.sh
-ADD licenses $NVC_HOME/licenses
-ADD idea.properties $NVC_HOME/idea-IU-221.5787.30/bin/idea.properties
-ADD idea.properties $NVC_HOME/.idea.properties
+COPY --chown:novnc:novnc ./idea/ $NVC_HOME/.idea/
+COPY --chown=novnc:novnc 03-intellij.conf /etc/supervisord/
+COPY --chown=novnc:novnc intellij.sh $NVC_HOME/intellij.sh
+COPY --chown=novnc:novnc idea.properties $NVC_HOME/idea-IC-221.5921.22/bin/idea.properties
+COPY --chown=novnc:novnc idea.properties $NVC_HOME/.idea.properties
+COPY --chown=novnc:novnc licenses $NVC_HOME/licenses
 
 # Set additional environment variables
 ENV JDK18=/usr/lib/jvm/java-11-openjdk \
@@ -45,10 +46,6 @@ ENV JDK18=/usr/lib/jvm/java-11-openjdk \
     PATH="/usr/lib/jvm/java-11-openjdk/bin/:$PATH"
 
 RUN chmod +x $NVC_HOME/intellij.sh && \
-    chown -R novnc:novnc $NVC_HOME/intellij.sh && \
-    chown -R novnc:novnc $NVC_HOME/licenses && \
-    chown -R novnc:novnc $NVC_HOME/idea-IU-221.5787.30/bin/idea.properties && \
-    chown -R novnc:novnc $NVC_HOME/.idea.properties && \
     echo "fs.inotify.max_user_watches = 524288" >> /etc/sysctl.conf
 
 VOLUME ["/home/novnc/.idea"]
