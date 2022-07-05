@@ -20,7 +20,7 @@ ENV DISPLAY=:0 \
     TOMCAT_DIR=/opt/tomcat \
     TOMCAT_WAR=/opt/tomcat/webapps \
     DEBIAN_FRONTEND=noninteractive \
-    SECURITY_TYPE="VncAuth,X509None" \
+    SECURITY_TYPE=None \
     VNC_SERVER=tigervnc \
     DISPLAY_DEPTH=24 \
     DISPLAY_WIDTH=1280 \
@@ -31,6 +31,7 @@ ENV DISPLAY=:0 \
     LANG=en_GB.UTF-8 \
     GUACAMOLE_HOME=/home/novnc/guacamole \
     GUACA_PASSWORD=novnc \
+    GUACA_SSL=true \
     VNC_PASSWORD=novnc
 
 COPY config/nobody/ /home/novnc/

@@ -103,6 +103,7 @@ echo "Guaca password: ${guaca_password}"
 
 sed -i -e "s/{{GUACA_PASSWORD}}/${guaca_password}/g" /home/novnc/guacamole/user-mapping.xml
 sed -i -e "s/{{VNC_PASSWORD}}/${VNC_PASSWORD}/g" /home/novnc/guacamole/user-mapping.xml
+sed -i -e "s/{{GUACA_SSL}}/${GUACA_SSL}/g" /home/novnc/guacamole/guacamole.properties
 
 # start application
 /usr/bin/supervisord -c /etc/supervisord.conf
