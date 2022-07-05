@@ -70,8 +70,8 @@ sudo -H -u novnc mkdir -p /home/novnc/guacamole
 
 # setup tomcat
 sudo -H -u novnc mkdir -p /home/novnc/tomcat
-sudo -H u novnc wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.tar.gz
-sudo -H u novnc tar xvzf apache-tomcat-9.0.64.tar.gz --strip-components 1 --directory /home/novnc/tomcat/
+sudo -H -u novnc wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.tar.gz
+sudo -H -u novnc tar xvzf apache-tomcat-9.0.64.tar.gz --strip-components 1 --directory /home/novnc/tomcat/
 rm -rf apache-tomcat-9.0.64.tar.gz
 chmod +x /home/novnc/tomcat/bin/*.sh
 mkdir -p /home/novnc/tomcat/webapps
