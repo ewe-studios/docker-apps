@@ -34,8 +34,11 @@ Default username and password are: novnc (password can be customized via environ
 
 ![img.png](img.png)
 
+
+
 ## NoVNC Web App
 
+![IntelliJ-NoVNC](IntelliJ-NoVNC.jpeg)
 
 **Access via web interface (noVNC)**
 
