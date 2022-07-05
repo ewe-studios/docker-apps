@@ -87,5 +87,8 @@ fi
 export PATH="/home/novnc/tomcat/bin:$PATH"
 
 rc-update add sshd
+#rc-service xrdp start
+#rc-service xrdp-sesman start
+#rc-service vino start
 
 set +x

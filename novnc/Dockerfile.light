@@ -20,7 +20,7 @@ ENV DISPLAY=:0 \
     TOMCAT_DIR=/opt/tomcat \
     TOMCAT_WAR=/opt/tomcat/webapps \
     DEBIAN_FRONTEND=noninteractive \
-    SECURITY_TYPE="VncAuth,None" \
+    SECURITY_TYPE="VncAuth,X509None" \
     VNC_SERVER=tigervnc \
     DISPLAY_DEPTH=24 \
     DISPLAY_WIDTH=1280 \
@@ -52,7 +52,7 @@ RUN \
       fluxbox \
       git dunst hsetroot \
       ttf-dejavu font-noto ttf-dejavu ttf-liberation \
-      compton  \
+      compton vino@community xrdp \
       xterm \
       sudo gosu shadow nodejs npm \
       tigervnc openjdk11 \
@@ -81,6 +81,8 @@ RUN mkdir -p /home/novnc && \
     chmod +x /home/novnc/*.sh && \
     sh /home/novnc/install.sh
 
+# copy configurations
+COPY  config/xdp/xrdp.ini /etc/xrdp/xrdp.ini
 
 # COPY --chown=novnc:novnc pre-configured config files for deluge
 COPY --chown=novnc:novnc config/ssh/sshd_config /etc/ssh/sshd_config
@@ -117,6 +119,7 @@ COPY --chown=novnc:novnc config/guacamole/guacamole.war /home/novnc/tomcat/webap
 COPY --chown=novnc:novnc entrypoint.sh /entrypoint.sh
 
 EXPOSE 5900
+EXPOSE 5905
 EXPOSE 6080
 
 WORKDIR /home/novnc
