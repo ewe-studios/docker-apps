@@ -16,7 +16,7 @@ RUN set -ex && \
 ENV NVC_HOME /home/novnc
 
 # Add our properties files
-COPY --chown:novnc:novnc ./idea/ $NVC_HOME/.idea/
+COPY --chown=novnc:novnc ./idea/ $NVC_HOME/.idea/
 COPY --chown=novnc:novnc 03-intellij.conf /etc/supervisord/
 COPY --chown=novnc:novnc intellij.sh $NVC_HOME/intellij.sh
 COPY --chown=novnc:novnc idea.properties $NVC_HOME/idea-IC-221.5921.22/bin/idea.properties
