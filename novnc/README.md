@@ -148,4 +148,8 @@ GUACA_PASSWORD=novnc - password for guacamole ui login for user novnc
 GUACA_SSL=true  - enable ssl mode for guacd
 
 VNC_PASSWORD=novnc - password for vnc
+
+TIGER_VNC_OPTS - add extra options to tiger vnc when VNC_SERVER=tiger
+
+X11_VNC_OPTS - add extra options to x11vnc when VNC_SERVER=X11
 ```
