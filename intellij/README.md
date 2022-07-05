@@ -4,8 +4,12 @@ Docker image for my favorite code editor: intellij Ultimate.
 ### Base Image
 
 - [Alpine:Edge](https://hub.docker.com/_/alpine)
-- [influx6:Novnc](https://hub.docker.com/influx6/novnc)
+- [influx6:novnc](https://hub.docker.com/r/influx6/novnc)
 
+## Docker
+
+- [IntelliJ Ultimate](https://hub.docker.com/r/influx6/intellij-u)
+- [IntelliJ Community](https://hub.docker.com/r/influx6/intellij-c)
 
 **Example**
 ```
@@ -42,11 +46,13 @@ Default username and password are: novnc (password can be customized via environ
 
 **Access via web interface (noVNC)**
 
-`http://<host ip>:<host port>/vnc.html?resize=remote&host=<host ip>&port=<host port>&&autoconnect=1`
+`https://<host ip>:<host port>/vnc.html?resize=remote&host=<host ip>&port=<host port>&&autoconnect=1`
 
 e.g.:-
 
-`http://192.168.1.10:6080/vnc.html?resize=remote&host=192.168.1.10&port=6080&&autoconnect=1`
+`https://192.168.1.10:6080/vnc.html?resize=remote&host=192.168.1.10&port=6080&&autoconnect=1`
+
+Project comes with a self-signed certificate, so you will have to tell your browser to load page regardless of warning. 
 
 **Access via VNC client**
 
