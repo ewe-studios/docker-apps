@@ -17,6 +17,10 @@ pushc:
 	docker push influx6/intellij-c:${VERSION}
 	docker push influx6/intellij-c:latest
 
+build: buildu buildu
+
+push: pushc pushu
+
 run:
 	docker run -it --rm -v "${HOME}/Lab/intellij:/home/novnc/.idea:rw" -p 6080:6080 influx6/intellij-u:${VERSION}
 
