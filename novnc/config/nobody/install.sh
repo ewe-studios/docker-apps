@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 # add user "novnc" to primary group "users" (will remove any other group membership)
 addgroup -g 1001 sudo
 addgroup -g 1002 users
@@ -78,3 +80,5 @@ mkdir -p /home/novnc/tomcat/webapps
 # setup guacamole-client
 # --> we will place a predownloaded war from: wget https://dlcdn.apache.org/guacamole/1.4.0/binary/guacamole-1.4.0.war -O /opt/tomcat/webapps/guacamole.war
 export PATH="/home/novnc/tomcat/bin:$PATH"
+
+set +x
