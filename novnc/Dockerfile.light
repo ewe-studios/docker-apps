@@ -38,16 +38,6 @@ COPY config/nobody/ /home/novnc/
 # install app
 #############
 RUN \
-    # create directories
-    mkdir -p /home/novnc && \
-    mkdir -p /home/novnc/Lab && \
-    mkdir -p /home/novnc/.idea && \
-    mkdir -p /home/novnc/.java && \
-    mkdir -p /home/novnc/logs/supervisord && \
-    mkdir -p /home/.fluxbox/styles && \
-    mkdir -p /var/logs/supervisord/ && \
-    # Install required packages
-    chmod +x /home/novnc/*.sh && \
     echo "http://dl-3.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
     apk --no-cache --update --upgrade add \
       tzdata \
@@ -77,8 +67,18 @@ RUN \
       terminator yakuake pcmanfm \
       xvfb \
       xvfb-run \
-      x11vnc \
-      && \
+      x11vnc
+
+    # create directories
+RUN mkdir -p /home/novnc && \
+    mkdir -p /home/novnc/Lab && \
+    mkdir -p /home/novnc/.idea && \
+    mkdir -p /home/novnc/.java && \
+    mkdir -p /home/novnc/logs/supervisord && \
+    mkdir -p /home/.fluxbox/styles && \
+    mkdir -p /var/logs/supervisord/ && \
+    # Install required packages
+    chmod +x /home/novnc/*.sh && \
     sh /home/novnc/install.sh && \
     apk del git
 
