@@ -86,4 +86,6 @@ fi
 # --> we will place a predownloaded war from: wget https://dlcdn.apache.org/guacamole/1.4.0/binary/guacamole-1.4.0.war -O /opt/tomcat/webapps/guacamole.war
 export PATH="/home/novnc/tomcat/bin:$PATH"
 
+rc-update add sshd
+
 set +x

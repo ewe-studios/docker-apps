@@ -14,24 +14,28 @@
             <param name="hostname">dark-mini</param>
             <param name="port">5900</param>
             <param name="password">{{VNC_PASSWORD}}</param>
+            <param name="ignore-cert">true</param>
         </connection>
         <connection name="VNC:DarkvoidMini-IP">
             <protocol>vnc</protocol>
             <param name="hostname">192.168.128.147</param>
             <param name="port">5900</param>
             <param name="password">{{VNC_PASSWORD}}</param>
+            <param name="ignore-cert">true</param>
         </connection>
         <connection name="VNC:HostIP">
             <protocol>vnc</protocol>
             <param name="hostname">localhost</param>
             <param name="port">5900</param>
             <param name="password">{{VNC_PASSWORD}}</param>
+            <param name="ignore-cert">true</param>
         </connection>
         <connection name="VNC:AnyIP">
             <protocol>vnc</protocol>
             <param name="hostname">0.0.0.0</param>
             <param name="port">5900</param>
             <param name="password">{{VNC_PASSWORD}}</param>
+            <param name="ignore-cert">true</param>
         </connection>
     </authorize>
 </user-mapping>
