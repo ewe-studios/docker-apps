@@ -102,3 +102,50 @@ User ID (PUID) and Group ID (PGID) can be found by issuing the following command
 ```
 id <username>
 ```
+
+## Environment Variables
+
+These are environment variables which can be customized as you see fit
+
+
+```bash
+DISPLAY= - display you wish to use (default is :0)
+
+GUID - override GUID to match your external user groupd id
+
+PUID - override PUID to match your external user id
+
+TERM=xterm  - default terminal
+
+LANG=en_US.UTF-8 
+
+LANGUAGE=en_US.UTF-8 
+
+LC_ALL=C.UTF-8 
+
+TZ=Asia/Hong_Kong 
+
+SECURITY_TYPE=None - security type for vnc and guacamole (can affect guacamole connectivity)
+
+VNC_SERVER=tigervnc/x11
+
+DISPLAY_DEPTH=24 
+
+DISPLAY_WIDTH=1280 
+
+DISPLAY_HEIGHT=1024 
+
+DISPLAY_MAX=0/1/-1 - selects between 0 - default display size, 1 - max display size or -1 - auto display settings 
+
+DISPLAY_WIDTH_MAX=1600  - max display width
+
+DISPLAY_HEIGHT_MAX=1200  - max display height
+
+LANG=en_GB.UTF-8 
+
+GUACA_PASSWORD=novnc - password for guacamole ui login for user novnc
+
+GUACA_SSL=true  - enable ssl mode for guacd
+
+VNC_PASSWORD=novnc - password for vnc
+```
