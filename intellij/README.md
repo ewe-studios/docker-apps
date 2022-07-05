@@ -12,6 +12,7 @@ Docker image for my favorite code editor: intellij Ultimate.
 docker run -d \
     -p 5900:5900 \
     -p 6080:6080 \
+    -p 7080:7080 \
     --name=novnc \
     -e DISPLAY_WIDTH=<> \
     -e DISPLAY_HEIGHT=<> \
@@ -20,6 +21,16 @@ docker run -d \
     -e VNC_PASSWORD=mypassword \
     influx6/intellj-u:latest
 ```
+
+## Guacamole Client
+
+Installed with the VNC client is a guacamole client and server which can act as a better alternative to raw NoVNC web app for
+accessing your service.
+
+Simply navigate to: http://localhost:7080/guacamole
+
+## NoVNC Web App
+
 
 **Access via web interface (noVNC)**
 

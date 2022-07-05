@@ -29,6 +29,7 @@ Please replace all user variables in the above command defined by <> with the co
 docker run -d \
     -p 5900:5900 \
     -p 6080:6080 \
+    -p 7080:7080 \
     --name=novnc \
     -v ./config:/home/nobody/.idea \
     -e DISPLAY_WIDTH=<> \
@@ -38,6 +39,16 @@ docker run -d \
     -e VNC_PASSWORD=mypassword \
     influx6/novnc:latest
 ```
+
+
+## Guacamole Client
+
+Installed with the VNC client is a guacamole client and server which can act as a better alternative to raw NoVNC web app for
+accessing your service.
+
+Simply navigate to: http://localhost:7080/guacamole
+
+## NoVNC Web App
 
 **Access via web interface (noVNC)**
 
@@ -60,6 +71,7 @@ e.g.:-
 docker run -d \
     -p 5900:5900 \
     -p 6080:6080 \
+    -p 7080:7080 \
     --name=<container name> \
     influx6/novnc:latest
 ```
@@ -77,7 +89,6 @@ RUN \
     echo 'command=xterm' >> 03-myapp.conf && \
     echo 'autorestart=true' >> 03-myapp.conf
 ```
-
 
 **Notes**
 
