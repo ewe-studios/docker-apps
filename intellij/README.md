@@ -27,6 +27,61 @@ docker run -d \
     influx6/intellj-u:latest
 ```
 
+## Docker Compose
+
+File:  docker-compose.yml
+
+```yaml
+version: "3.5"
+
+networks:
+  default:
+    external:
+      name: app-networks
+
+volumes:
+  intelliju-volume-data:
+
+services:
+  code-server-intellij:
+    image: "influx6/intellij-u:0.0.4"
+    restart: unless-stopped
+    container_name: code-server-intellij
+    security_opt:
+      - apparmor=unconfined
+      - seccomp=unconfined
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - "APP=INTELLIJ_UL"
+      - "VNC_PASSWORD=$VNC_PASSWORD"
+      - "GUACA_PASSWORD=$GUACA_PASSWORD"
+      - "SECURITY_TYPE=$SECURITY_TYPE"
+      - "GUACA_SSL=$GUACA_SSL"
+    volumes:
+      - intelliju-volume-data:/home/novnc/.idea
+      - "$SERVER_HOME/Lab:/home/novnc/Lab:rw"
+      - "$HOST_FILE:/etc/hosts:rw"
+      - "$TERMINAL_FILE:/etc/.terminal:ro"
+      - "$SSH_FILE:/etc/ssh/id_rsa:ro"
+      - "$SSH_PUB_FILE:/etc/ssh/id_rsa.pub:ro"
+      - "$SSH_FILE:/home/novnc/.ssh/id_rsa:ro"
+      - "$SSH_PUB_FILE:/home/novnc/.ssh/id_rsa.pub:ro"
+    ports:
+      - "6080:6080"
+      - "7080:8080"
+      - "5900:5900"
+
+```
+
+Be aware as exactly as above, feel free to customize.
+
+Which can be executed as:
+
+```bash
+docker-compose --env-file .env -f docker-compose.yml
+```
+
 ## Guacamole Client
 
 Installed with the VNC client is a guacamole client and server which can act as a better alternative to raw NoVNC web app for
