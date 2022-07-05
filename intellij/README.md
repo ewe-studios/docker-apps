@@ -19,6 +19,7 @@ docker run -d \
     -e DISPLAY_DEPTH=<> \
     -e VNC_SERVER=<x11 or tigervnc> (default: tigervnc) \
     -e VNC_PASSWORD=mypassword \
+    -e GUACA_PASSWORD=mypassword \
     influx6/intellj-u:latest
 ```
 
@@ -28,6 +29,10 @@ Installed with the VNC client is a guacamole client and server which can act as 
 accessing your service.
 
 Simply navigate to: http://localhost:7080/guacamole
+
+Default username and password are: novnc (password can be customized via environment variables `GUACA_PASSWORD`)
+
+![img.png](img.png)
 
 ## NoVNC Web App
 
