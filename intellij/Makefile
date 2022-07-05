@@ -17,7 +17,7 @@ pushc:
 	docker push influx6/intellij-c:${VERSION}
 	docker push influx6/intellij-c:latest
 
-build: buildu buildu
+build: buildu buildc
 
 push: pushc pushu
 
