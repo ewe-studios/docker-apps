@@ -6,7 +6,7 @@ rm -rf /tmp/.X*;
 OTHER_ARGS="-SecurityTypes=${SECURITY_TYPE} -X509Cert /home/novnc/ssl/server.crt -X509Key /home/novnc/ssl/server.key"
 
 if [ -f "/home/novnc/.vnc/passwd" ]; then
-  OTHER_ARGS="-PasswordFile /home/novnc/.vnc/passwd -X509Cert /home/novnc/ssl/server.crt -X509Key /home/novnc/ssl/server.key"
+  OTHER_ARGS="-SecurityTypes=${SECURITY_TYPE} -PasswordFile /home/novnc/.vnc/passwd -X509Cert /home/novnc/ssl/server.crt -X509Key /home/novnc/ssl/server.key"
 fi
 
 command="Xvnc ${DISPLAY} -geometry ${DISPLAY_WIDTH}x${DISPLAY_HEIGHT} -depth ${DISPLAY_DEPTH} ${OTHER_ARGS}"
