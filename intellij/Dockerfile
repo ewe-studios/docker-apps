@@ -46,6 +46,12 @@ ENV JDK18=/usr/lib/jvm/java-11-openjdk \
     PATH="/usr/lib/jvm/java-11-openjdk/bin/:$PATH"
 
 RUN chmod +x $NVC_HOME/intellij.sh && \
+    chown novnc:novnc -R /home/novnc/Lab && \
+    chown novnc:novnc -R /home/novnc/.idea && \
+    chown novnc:novnc -R /home/novnc/.java && \
+    chown novnc:novnc -R /home/novnc/logs && \
+    chown novnc:novnc -R /home/novnc/.fluxbox && \
+    chown novnc:users -R /var/logs/supervisord && \
     echo "fs.inotify.max_user_watches = 524288" >> /etc/sysctl.conf
 
 VOLUME ["/home/novnc/.idea"]
