@@ -17,8 +17,9 @@ ENV DISPLAY=:0 \
     LC_ALL=C.UTF-8 \
     HOME=/home/novnc \
     TZ=Asia/Hong_Kong \
-    TOMCAT_DIR=/opt/tomcat \
-    TOMCAT_WAR=/opt/tomcat/webapps \
+    CATALINA_HOME=/home/novnc/tomcat \
+    TOMCAT_DIR=/home/novnc/tomcat \
+    TOMCAT_WAR=/home/novnc/tomcat/webapps \
     DEBIAN_FRONTEND=noninteractive \
     SECURITY_TYPE=None \
     VNC_SERVER=tigervnc \
@@ -61,18 +62,20 @@ RUN \
       tigervnc openjdk11 \
       openssh ca-certificates \
       openssl-dev openssl \
-      supervisor \
-      curl axel autocutsel \
+      supervisor libssl-dev \
+      curl axel autocutsel apr-util httpd apr-util-ldap pr-util-dev \
       zip unzip feh \
       tar xz copyq alacritty  \
       guacamole-server guacamole-server-doc \
       guacamole-server-dev dbus-x11 \
-      terminator yakuake pcmanfm \
+      terminator yakuake pcmanfm tomcat-native tomcat-native-dev \
       xvfb \
       xvfb-run \
       x11vnc
 
-    # create directories
+COPY --chown=novnc:novnc config/apache-tomcat-9.0.64 /home/novnc/tomcat
+
+# create directories
 RUN mkdir -p /home/novnc && \
     mkdir -p /home/novnc/Lab && \
     mkdir -p /home/novnc/.idea && \
@@ -145,6 +148,7 @@ RUN chown -R novnc:novnc /home/novnc/*.sh && \
 ENV JDK11=/usr/lib/jvm/java-11-openjdk \
     JAVA_HOME=/usr/lib/jvm/java-11-openjdk \
     JDK_HOME=/usr/lib/jvm/java-11-openjdk \
+    LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$CATALINA_HOME/lib:/usr/lib/" \
     JAVA_EXE=/usr/lib/jvm/java-11-openjdk/bin/java
 
 # run script to set uid, gid and permissions

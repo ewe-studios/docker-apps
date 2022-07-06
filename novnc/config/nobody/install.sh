@@ -69,18 +69,23 @@ sed -i -- "s/ps -p/ps -o pid | grep/g" $HOME/noVNC/utils/novnc_proxy
 sudo -H -u novnc mkdir -p /home/novnc/guacamole
 
 # setup tomcat
-sudo -H -u novnc mkdir -p /home/novnc/tomcat
-sudo -H -u novnc wget https://dlcdn.apache.org/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.tar.gz -O /home/novnc/apache-tomcat-9.0.64.tar.gz
 
-if [ -f /home/novnc/apache-tomcat-9.0.64.tar.gz ]; then
-  sudo -H -u novnc tar xvzf /home/novnc/apache-tomcat-9.0.64.tar.gz --strip-components 1 --directory /home/novnc/tomcat/
-  rm -rf apache-tomcat-9.0.64.tar.gz
-  chmod +x /home/novnc/tomcat/bin/*.sh
-  mkdir -p /home/novnc/tomcat/webapps
-else
-  echo "Failed to download tomcat, please investigate"
-  exit 1;
-fi
+# disable build
+sudo -H -u novnc mkdir -p /home/novnc/tomcat
+#sudo -H -u novnc wget https://mirror-hk.koddos.net/apache/tomcat/tomcat-connectors/native/1.2.31/source/tomcat-native-1.2.31-src.tar.gz -O /home/novnc/tomcat-native-1.2.31-src.tar.gz
+#if [ -f /home/novnc/tomcat-native-1.2.31-src.tar.gz ]; then
+#  sudo -H -u novnc mkdir -p /home/novnc/tomcat-native
+#  sudo -H -u novnc tar xvzf /home/novnc/tomcat-native-1.2.31-src.tar.gz --strip-components 1 --directory /home/novnc/tomcat-native/
+#  rm -rf tomcat-native-1.2.31-src.tar.gz
+#  cd /home/novnc/tomcat-native/native
+#  ./configure --with-apr=/usr/bin/apr-1-config \
+#              --with-java-home="$JAVA_JOME" \
+#              --with-ssl=yes \
+#              --prefix="$CATALINA_HOME"
+#else
+#  echo "Failed to download tomcat, please investigate"
+#  exit 1;
+#fi
 
 # setup guacamole-client
 # --> we will place a predownloaded war from: wget https://dlcdn.apache.org/guacamole/1.4.0/binary/guacamole-1.4.0.war -O /opt/tomcat/webapps/guacamole.war
