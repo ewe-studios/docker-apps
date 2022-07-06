@@ -82,6 +82,20 @@ Which can be executed as:
 docker-compose --env-file .env -f docker-compose.yml
 ```
 
+Important points:
+
+```yaml
+security_opt:
+  - apparmor=unconfined
+  - seccomp=unconfined
+```
+
+These security grants are required as there are errors with the container running file system related operations, so be it via docker-compose or plain docker run commands ensure to include them.
+
+```bash
+docker run --security-opt apparmor=unconfined --security-opt seccomp=unconfined ...
+```
+
 ## Guacamole Client
 
 Installed with the VNC client is a guacamole client and server which can act as a better alternative to raw NoVNC web app for
@@ -93,7 +107,7 @@ Default username and password are: novnc (password can be customized via environ
 
 ![img.png](img.png)
 
-
+![Watch Video](./assets/guacamole-vnc-demo.mp4)
 
 ## NoVNC Web App
 
