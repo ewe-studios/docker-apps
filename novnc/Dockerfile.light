@@ -63,7 +63,7 @@ RUN \
       openssh ca-certificates \
       openssl-dev openssl \
       supervisor libssl-dev \
-      curl axel autocutsel apr-util apr-util-ldap pr-util-dev \
+      curl axel autocutsel apr-util apr-util-ldap apr-util-dev \
       zip unzip feh \
       tar xz copyq alacritty  \
       guacamole-server guacamole-server-doc \
