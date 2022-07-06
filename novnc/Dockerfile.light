@@ -90,6 +90,7 @@ COPY  config/xdp/xrdp.ini /etc/xrdp/xrdp.ini
 # COPY --chown=novnc:novnc pre-configured config files for deluge
 COPY --chown=novnc:novnc config/ssh/sshd_config /etc/ssh/sshd_config
 COPY --chown=novnc:novnc config/terminator /home/.config/terminator
+COPY --chown=novnc:novnc config/terminator /etc/xdg/terminator
 COPY --chown=novnc:novnc styles/themes/pkgs /home/novnc/.themes
 COPY --chown=novnc:novnc styles/Cilia/GTK2/Cilia_original /home/novnc/.themes/Cilia_original
 COPY --chown=novnc:novnc styles/Cilia/compton/compton.conf /home/novnc/.config/compton/compton.conf
