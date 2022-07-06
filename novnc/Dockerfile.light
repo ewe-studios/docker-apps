@@ -62,7 +62,7 @@ RUN \
       tigervnc openjdk11 \
       openssh ca-certificates \
       openssl-dev openssl \
-      supervisor libssl-dev \
+      supervisor  \
       curl axel autocutsel apr-util apr-util-ldap apr-util-dev \
       zip unzip feh \
       tar xz copyq alacritty  \
