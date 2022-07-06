@@ -73,8 +73,6 @@ RUN \
       xvfb-run \
       x11vnc
 
-COPY --chown=novnc:novnc config/apache-tomcat-9.0.64 /home/novnc/tomcat
-
 # create directories
 RUN mkdir -p /home/novnc && \
     mkdir -p /home/novnc/Lab && \
@@ -85,6 +83,12 @@ RUN mkdir -p /home/novnc && \
     mkdir -p /var/logs/supervisord/ && \
     # Install required packages
     chmod +x /home/novnc/*.sh && \
+    sh /home/novnc/user.sh
+
+COPY --chown=novnc:novnc config/apache-tomcat-9.0.64 /home/novnc/tomcat
+
+# create directories
+RUN mkdir -p /home/novnc && \
     sh /home/novnc/install.sh
 
 # copy configurations
