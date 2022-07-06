@@ -105,9 +105,17 @@ Simply navigate to: http://localhost:7080/guacamole
 
 Default username and password are: novnc (password can be customized via environment variables `GUACA_PASSWORD`)
 
+Guacamole Login
+
 ![img.png](img.png)
 
-![Watch Video](./assets/guacamole-vnc-demo.mp4)
+IntelliJ via Guacamole
+
+![](assets/ywDDQR.jpg)
+
+
+[![Watch Video](https://j.gifs.com/ywDDQR.gif)](https://youtu.be/zIjhRxnz51w)
+
 
 ## NoVNC Web App
 
