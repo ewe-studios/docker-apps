@@ -51,10 +51,11 @@ RUN \
       grep \
       make \
       perl perl-utils \
-      vim nano \
+      vim nano musl eudev-libs \
       rxvt-unicode thunar \
       fluxbox \
       git dunst hsetroot \
+      mesa glu mesa-dev mesa-egl mesa-gl mesa-gles mesa-vulkan-intel mesa-dri-nouveau mesa-osmesa 	mesa-xatracker mesa-demos \
       ttf-dejavu font-noto ttf-dejavu ttf-liberation \
       compton xrdp \
       xterm \
@@ -62,7 +63,7 @@ RUN \
       tigervnc openjdk11 \
       openssh ca-certificates \
       openssl-dev openssl \
-      supervisor  \
+      supervisor xrandr \
       curl axel autocutsel apr-util apr-util-ldap apr-util-dev \
       zip unzip feh \
       tar xz copyq alacritty  \

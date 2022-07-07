@@ -105,6 +105,25 @@ User ID (PUID) and Group ID (PGID) can be found by issuing the following command
 id <username>
 ```
 
+
+### Gotcha
+
+I noticed at times even when directly using Guacamole or other VNC client that the size of the display is usually small, 
+I have yet to find a way to fix this, but the NoVNC client seems to have some underline logic that will force a resize of 
+giving display, so if you see your desktop VNC client or Guacamole displaying a smaller size than your available desktop space, do the following:
+
+1. Navigate to the NoVNC web login portal (see [NoVNC Web App](#novnc-web-app) section)
+2. Login with your login credentials
+3. NoVNC will show your desktop
+4. Ensure resize=remote is enabled in settings
+5. Apply settings if not.
+
+You can also paste the following url with the correct options
+
+`https://[ip]:6080/vnc.html?resize=remote&host=192.168.1.10&port=6080&&autoconnect=1`
+
+These will correct the display size and will reflect on other VNC client you are using.
+
 ## Environment Variables
 
 These are environment variables which can be customized as you see fit
