@@ -58,9 +58,9 @@ RUN \
       mesa glu mesa-dev mesa-egl mesa-gl mesa-gles mesa-vulkan-intel mesa-dri-nouveau mesa-osmesa 	mesa-xatracker mesa-demos \
       ttf-dejavu font-noto ttf-dejavu ttf-liberation \
       compton xrdp \
-      xterm \
+      xterm faenza-icon-theme \
       sudo gosu shadow nodejs npm \
-      tigervnc openjdk11 \
+      tigervnc tigervnc-client tigervnc-lang openjdk11 \
       openssh ca-certificates \
       openssl-dev openssl \
       supervisor xrandr \
