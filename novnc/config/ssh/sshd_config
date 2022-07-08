@@ -83,6 +83,7 @@ UsePAM yes
 
 #AllowAgentForwarding yes
 # Feel free to re-enable these if your use case requires them.
+UseDNS no
 AllowTcpForwarding yes
 GatewayPorts no
 X11Forwarding yes
@@ -96,7 +97,6 @@ PermitTTY yes
 #Compression delayed
 #ClientAliveInterval 0
 #ClientAliveCountMax 3
-#UseDNS no
 #PidFile /run/sshd.pid
 #MaxStartups 10:30:100
 #PermitTunnel no

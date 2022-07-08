@@ -63,7 +63,7 @@ RUN \
       tigervnc tigervnc-client tigervnc-lang openjdk11 \
       openssh ca-certificates \
       openssl-dev openssl \
-      supervisor xrandr \
+      supervisor openrc xrandr \
       curl axel autocutsel apr-util apr-util-ldap apr-util-dev \
       zip unzip feh \
       tar xz copyq alacritty  \
@@ -90,6 +90,7 @@ COPY --chown=novnc:novnc config/apache-tomcat-9.0.64 /home/novnc/tomcat
 
 # create directories
 RUN mkdir -p /home/novnc && \
+    rc-update add sshd && \
     sh /home/novnc/install.sh
 
 # copy configurations

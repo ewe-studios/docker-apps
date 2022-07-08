@@ -37,6 +37,8 @@ sed -i -- "s/ps -p/ps -o pid | grep/g" $HOME/noVNC/utils/novnc_proxy
 sudo -H -u novnc mkdir -p /home/novnc/guacamole
 
 # setup tomcat
+mkdir /run/openrc
+touch /run/openrc/softleve
 
 # disable build
 sudo -H -u novnc mkdir -p /home/novnc/tomcat
