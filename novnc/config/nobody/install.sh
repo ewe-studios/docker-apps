@@ -64,6 +64,13 @@ export PATH="/home/novnc/tomcat/bin:$PATH"
 #rc-service xrdp-sesman start
 #rc-service vino start
 
+# install oh my bash
+sudo -H -u novnc bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmybash/oh-my-bash/master/tools/install.sh)"
+
+sudo -H -u echo 'source $HOME/.base_profile' >> /home/novnc/.bashrc
+sudo -H -u echo 'source $HOME/.user_profile' >> /home/novnc/.bashrc
+
+# create base profile
 sudo -H -u novnc touch /home/novnc/.user_profile
 
 set +x

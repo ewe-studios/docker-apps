@@ -1,4 +1,4 @@
-PS1="\[\033[1;38;5;23m\]\342\224\214\342\224\200 \[\033[1;38;5;23m\u: \w\n\[\033[1;38;5;23m\]\342\224\224\342\224\200\342\224\200☻ \[\033[0m\]"
+# PS1="\[\033[1;38;5;23m\]\342\224\214\342\224\200 \[\033[1;38;5;23m\u: \w\n\[\033[1;38;5;23m\]\342\224\224\342\224\200\342\224\200☻ \[\033[0m\]"
 
 alias df="dfc"
 # alias cpan=cpanm
@@ -42,8 +42,7 @@ man() {
     man "$@"
 }
 
-export EDITOR=nano
 eval `dircolors -b ~/.dircolors`
-export STEAM_RUNTIME_PREFER_HOST_LIBRARIES=0
 
-source /home/novnc/.user_profile
+export EDITOR=vim
+export STEAM_RUNTIME_PREFER_HOST_LIBRARIES=0
