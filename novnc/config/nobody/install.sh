@@ -64,4 +64,6 @@ export PATH="/home/novnc/tomcat/bin:$PATH"
 #rc-service xrdp-sesman start
 #rc-service vino start
 
+sudo -H -u novnc touch /home/novnc/.user_profile
+
 set +x

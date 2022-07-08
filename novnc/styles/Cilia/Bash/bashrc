@@ -45,3 +45,5 @@ man() {
 export EDITOR=nano
 eval `dircolors -b ~/.dircolors`
 export STEAM_RUNTIME_PREFER_HOST_LIBRARIES=0
+
+source /home/novnc/.user_profile
