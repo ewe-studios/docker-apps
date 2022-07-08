@@ -5,7 +5,7 @@
             encoding="md5">
         <connection name="SSH">
             <protocol>ssh</protocol>
-            <param name="hostname">localhost</param>
+            <param name="hostname">0.0.0.0</param>
             <param name="port">22</param>
             <param name="username">novnc</param>
         </connection>
