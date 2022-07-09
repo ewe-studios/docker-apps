@@ -16,6 +16,7 @@ shift;
 shift;
 
 hostname="${NOVNC_HOSTNAME}";
+HOSTNAME="${NOVNC_HOSTNAME}";
 
 if [ "$novnc_enabled" = "1" ]; then
   if [ "$enabled" = "1" ]; then
