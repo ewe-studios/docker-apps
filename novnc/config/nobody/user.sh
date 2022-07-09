@@ -36,7 +36,7 @@ export HOME=/home/novnc
 
 # setup tomcat
 sudo mkdir /run/openrc
-sudo touch /run/openrc/softleve
+sudo touch /run/openrc/softlevel
 
 sudo mkdir -p /var/screens
 sudo chmod 0777 -R /var/screens
