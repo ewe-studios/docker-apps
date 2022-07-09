@@ -97,17 +97,19 @@ fi
 # set password for x11vnc
 sudo -H -u novnc x11vnc -storepasswd "${VNC_PASSWORD}" /home/novnc/x11_password
 
-# replace guacamole password with updated values in usermapping
-guaca_password=$(echo -n "${GUACA_PASSWORD}" | md5sum |  cut -d' ' -f1)
-echo "Guaca password: ${guaca_password}"
+if [ "$GUACAMOLE_SETUP" = "1" ]; then
+  # replace guacamole password with updated values in usermapping
+  guaca_password=$(echo -n "${GUACA_PASSWORD}" | md5sum |  cut -d' ' -f1)
+  echo "Guaca password: ${guaca_password}"
 
-sed -i -e "s/{{GUACA_PASSWORD}}/${guaca_password}/g" /home/novnc/guacamole/user-mapping.xml
-sed -i -e "s/{{VNC_PASSWORD}}/${VNC_PASSWORD}/g" /home/novnc/guacamole/user-mapping.xml
-sed -i -e "s/{{GUACA_SSL}}/${GUACA_SSL}/g" /home/novnc/guacamole/guacamole.properties
+  sed -i -e "s/{{GUACA_PASSWORD}}/${guaca_password}/g" /home/novnc/guacamole/user-mapping.xml
+  sed -i -e "s/{{VNC_PASSWORD}}/${VNC_PASSWORD}/g" /home/novnc/guacamole/user-mapping.xml
+  sed -i -e "s/{{GUACA_SSL}}/${GUACA_SSL}/g" /home/novnc/guacamole/guacamole.properties
+fi
 
-rc-status
-rc-service sshd start
-rc-status
+sudo rc-status
+sudo rc-service sshd start
+sudo rc-status
 
 # start application
 /usr/bin/supervisord -c /etc/supervisord.conf
