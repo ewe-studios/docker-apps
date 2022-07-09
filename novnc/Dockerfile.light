@@ -110,7 +110,7 @@ RUN \
       mesa-dri-nouveau mesa-dri-intel mesa-dri-ati mesa-dri-swrast mesa-osmesa \
       mesa-xatracker mesa-demos libxv libva libva-glx libva-intel-driver libva-vdpau-driver \
       ttf-dejavu font-noto ttf-dejavu ttf-liberation \
-      compton xrdp \
+      compton xrdp xclip xhost xauth vino openvino \
       xterm faenza-icon-theme \
       sudo gosu shadow nodejs npm \
       tigervnc tigervnc-client tigervnc-lang openjdk11 \
