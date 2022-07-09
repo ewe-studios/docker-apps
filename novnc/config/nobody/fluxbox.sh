@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 enabled="$1"
 DISPLAY="$2";
 
@@ -9,3 +11,5 @@ shift;
 if [ "$enabled" = "1" ]; then
   fluxbox "$@"
 fi
+
+set +x

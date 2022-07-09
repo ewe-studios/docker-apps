@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 enabled="$1";
 novnc_enabled="$2";
 vnc_addr="$3";
@@ -23,3 +25,5 @@ if [ "$novnc_enabled" = "1" ]; then
       "$@"
   fi
 fi
+
+set +x

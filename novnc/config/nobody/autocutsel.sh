@@ -1,6 +1,11 @@
 #!/bin/bash
 
-DISPLAY="$1";
+enabled="$1"
+DISPLAY="$2";
+
+shift;
 shift;
 
-autocutsel "$@"
+if [ "$enabled" = "1" ]; then
+  autocutsel -debug "$@"
+fi

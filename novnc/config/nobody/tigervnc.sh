@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 rm -rf /tmp/.X*;
 
 source /home/novnc/tigervnc_base.sh
@@ -23,3 +25,5 @@ if [ "${VNC_SERVER}" = "tigervnc" ]; then
   fi
 fi
 
+
+set +x

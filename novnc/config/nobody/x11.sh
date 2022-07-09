@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -x
+
 source /home/novnc/x11_base.sh
 
 VNC_SERVER="$1";
@@ -36,3 +38,5 @@ if [ "$enabled" = "1" ]; then
 
   fi
 fi
+
+set +x

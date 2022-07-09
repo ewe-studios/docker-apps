@@ -1,5 +1,10 @@
 #!/bin/bash
 
+set -x
+
+DISPLAY="$1";
+shift;
+
 sudo chown -R $PUID:$GUID /home/novnc/.idea
 sudo chown $PUID:$GUID "$IDEAU_HOME/bin/idea.sh"
 sudo chmod +x "$IDEAU_HOME/bin/idea.sh"
@@ -16,4 +21,8 @@ if [ -f /home/novnc/.ssh/id_rsa ]; then
 fi
 
 set -- sh "$IDEAU_HOME/bin/idea.sh" "$@"
+
+
 exec "$@"
+
+set +x
