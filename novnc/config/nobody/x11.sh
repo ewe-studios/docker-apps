@@ -2,7 +2,6 @@
 
 source /home/novnc/x11_base.sh
 
-
 enabled="$1";
 display="$2";
 port="$3";
