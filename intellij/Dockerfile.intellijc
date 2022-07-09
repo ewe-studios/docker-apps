@@ -5,7 +5,7 @@ ARG INTELLIJ_VERSION=2022.1.3
 ENV HOME /home/novnc
 
 RUN set -ex && \
-    mkdir -p /home/novnc/ideau && \
+    sudo -H -u novnc mkdir -p /home/novnc/ideau && \
     apk --no-cache --update add midori
 
 RUN set -ex && \
