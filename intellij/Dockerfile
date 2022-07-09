@@ -13,7 +13,7 @@ RUN set -ex && \
     cd $HOME && \
     sudo -H -u novnc wget https://download-cdn.jetbrains.com/idea/ideaIU-${INTELLIJ_VERSION}.tar.gz && \
     sudo -H -u novnc tar -xvzf ideaIU-${INTELLIJ_VERSION}.tar.gz --strip-components 1 --directory /home/novnc/ideau/ && \
-    rm ideaIU-2022.1.2.tar.gz
+    rm ideaIU-${INTELLIJ_VERSION}.tar.gz
 
 ENV NVC_HOME /home/novnc
 
