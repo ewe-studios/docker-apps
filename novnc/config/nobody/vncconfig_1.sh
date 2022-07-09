@@ -2,4 +2,4 @@
 
 DISPLAY=:0
 
-vncconfig -v
+vncconfig -v -display "$DISPLAY"
