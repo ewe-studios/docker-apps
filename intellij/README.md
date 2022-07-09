@@ -96,6 +96,16 @@ These security grants are required as there are errors with the container runnin
 docker run --security-opt apparmor=unconfined --security-opt seccomp=unconfined ...
 ```
 
+
+## Example
+
+Check the [examples](./examples) directory for a docker-compose for this project.
+
+Note not all environment variables are provided and in general you don't need them as they are specific to my needs.
+Feel free to modify these to suit your needs.
+
+The focus is how I boot and run the image.
+
 ## Guacamole Client
 
 Installed with the VNC client is a guacamole client and server which can act as a better alternative to raw NoVNC web app for
