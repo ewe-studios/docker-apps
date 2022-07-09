@@ -14,7 +14,7 @@ shift;
 
 if [ "${VNC_SERVER}" = "tigervnc" ]; then
   if [ "${enabled}" = "1" ]; then
-    echo "Creating screen for screen $display";
+    echo "Creating screen for display $display";
     screen1=$(create_screen "$display" "$display_port" "$@")
     echo "executing command: ${screen1}";
     eval "$screen1";

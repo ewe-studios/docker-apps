@@ -14,14 +14,35 @@
         <connection name="Screen 1">
             <protocol>vnc</protocol>
             <param name="hostname">0.0.0.0</param>
-            <param name="port">5900</param>
+            <param name="port">5901</param>
             <param name="password">{{VNC_PASSWORD}}</param>
             <param name="ignore-cert">true</param>
         </connection>
         <connection name="Screen 2">
             <protocol>vnc</protocol>
             <param name="hostname">0.0.0.0</param>
-            <param name="port">5901</param>
+            <param name="port">5902</param>
+            <param name="password">{{VNC_PASSWORD}}</param>
+            <param name="ignore-cert">true</param>
+        </connection>
+        <connection name="Screen 3">
+            <protocol>vnc</protocol>
+            <param name="hostname">0.0.0.0</param>
+            <param name="port">5903</param>
+            <param name="password">{{VNC_PASSWORD}}</param>
+            <param name="ignore-cert">true</param>
+        </connection>
+        <connection name="Screen 4">
+            <protocol>vnc</protocol>
+            <param name="hostname">0.0.0.0</param>
+            <param name="port">5904</param>
+            <param name="password">{{VNC_PASSWORD}}</param>
+            <param name="ignore-cert">true</param>
+        </connection>
+        <connection name="Screen 5">
+            <protocol>vnc</protocol>
+            <param name="hostname">0.0.0.0</param>
+            <param name="port">5905</param>
             <param name="password">{{VNC_PASSWORD}}</param>
             <param name="ignore-cert">true</param>
         </connection>
