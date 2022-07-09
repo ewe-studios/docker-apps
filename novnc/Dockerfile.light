@@ -165,7 +165,8 @@ ENV JDK11=/usr/lib/jvm/java-11-openjdk \
     JAVA_HOME=/usr/lib/jvm/java-11-openjdk \
     JDK_HOME=/usr/lib/jvm/java-11-openjdk \
     LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$CATALINA_HOME/lib:/usr/lib/" \
-    JAVA_EXE=/usr/lib/jvm/java-11-openjdk/bin/java
+    JAVA_EXE=/usr/lib/jvm/java-11-openjdk/bin/java \
+    DISPLAY=:0
 
 # run script to set uid, gid and permissions
 CMD ["/entrypoint.sh"]
