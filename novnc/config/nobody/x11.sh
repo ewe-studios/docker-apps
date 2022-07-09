@@ -21,9 +21,9 @@ if [ "$enabled" = "1" ]; then
 
     screen0_command=""
     if [ "${DISPLAY_MAX}" = "1" ]; then
-      screen0_command=$(create_screen "$display" "$screen" "${DISPLAY_WIDTH}x${DISPLAY_HEIGHT}x${DISPLAY_DEPTH}" "${xfvb_args}")
-    else
       screen0_command=$(create_screen "$display" "$screen" "${DISPLAY_WIDTH_MAX}x${DISPLAY_HEIGHT_MAX}x${DISPLAY_DEPTH}" "${xfvb_args}")
+    else
+      screen0_command=$(create_screen "$display" "$screen" "${DISPLAY_WIDTH}x${DISPLAY_HEIGHT}x${DISPLAY_DEPTH}" "${xfvb_args}")
     fi
 
     # start Xvfb 1 itself
