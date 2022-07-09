@@ -20,11 +20,11 @@ create_screen() {
 
   other_args="$@";
 
-  command="Xvnc ${display} -rfbport ${port} -geometry ${DISPLAY_WIDTH}x${DISPLAY_HEIGHT} -depth ${DISPLAY_DEPTH} -pixelformat ${DISPLAY_PIXEL_FORMAT} -FrameRate=${VNC_FRAMERATE} ${OTHER_ARGS} ${other_args}"
+  command="";
   if [ "${DISPLAY_MAX}" = "1" ]; then
     command="Xvnc ${display} -rfbport ${port} -geometry ${DISPLAY_WIDTH_MAX}x${DISPLAY_HEIGHT_MAX} -depth ${DISPLAY_DEPTH} -pixelformat ${DISPLAY_PIXEL_FORMAT} -FrameRate=${VNC_FRAMERATE} ${OTHER_ARGS} ${other_args}"
-  elif [ "${DISPLAY_MAX}" = "-1" ]; then
-    command="Xvnc ${display} -rfbport ${port} -depth ${DISPLAY_DEPTH} -pixelformat ${DISPLAY_PIXEL_FORMAT} -FrameRate=${VNC_FRAMERATE} ${OTHER_ARGS} ${other_args}"
+  else
+    command="Xvnc ${display} -rfbport ${port} -geometry ${DISPLAY_WIDTH}x${DISPLAY_HEIGHT} -depth ${DISPLAY_DEPTH} -pixelformat ${DISPLAY_PIXEL_FORMAT} -FrameRate=${VNC_FRAMERATE} ${OTHER_ARGS} ${other_args}"
   fi
 
   echo "$command"
