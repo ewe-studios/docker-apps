@@ -22,7 +22,7 @@ if [ "$novnc_enabled" = "1" ]; then
       --key /home/novnc/ssl/server.key \
       --heartbeat 2 \
       --vnc "$vnc_addr:$vnc_port" \
-      --listen-addr "0.0.0.0" \
+      --listen-addr "$NOVNC_HOSTNAME" \
       --listen "$web_port" \
       "$@"
   fi
