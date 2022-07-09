@@ -1,6 +1,7 @@
 #!/bin/bash
 
 rm -rf /tmp/.X*;
+mkdir -p /var/screens
 
 # setup env for user nobody
 OTHER_ARGS="-SecurityTypes=${SECURITY_TYPE} -X509Cert /home/novnc/ssl/server.crt -X509Key /home/novnc/ssl/server.key"

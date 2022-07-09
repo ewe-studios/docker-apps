@@ -38,4 +38,7 @@ export HOME=/home/novnc
 sudo mkdir /run/openrc
 sudo touch /run/openrc/softleve
 
+sudo mkdir -p /var/screens
+sudo chmod 0777 -R /var/screens
+
 set +x

@@ -3,8 +3,6 @@
 rm -rf /tmp/.X*;
 rm -rf /var/tmp/.X*;
 
-mkdir -p /var/scrrens
-
 create_screen() {
   display="$1";
   screen="$2";
