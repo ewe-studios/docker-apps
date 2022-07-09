@@ -4,10 +4,12 @@ rm -rf /tmp/.X*;
 
 source /home/novnc/tigervnc_base.sh
 
-enabled="$1";
-display="$2"
-display_port="$3"
+VNC_SERVER="$1";
+enabled="$2";
+display="$3"
+display_port="$4"
 
+shift;
 shift;
 shift;
 shift;

@@ -2,12 +2,14 @@
 
 source /home/novnc/x11_base.sh
 
-enabled="$1";
-display="$2";
-port="$3";
-screen="$4";
-xfvb_args="$5";
+VNC_SERVER="$1";
+enabled="$2";
+display="$3";
+port="$4";
+screen="$5";
+xfvb_args="$6";
 
+shift;
 shift;
 shift;
 shift;

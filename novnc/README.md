@@ -9,7 +9,8 @@ for custom changes that allow you to run via VNC easily.
 ### Depends on
 
 - [NoVNC](https://github.com/novnc/noVNC)
-- [TigerVNC](https://github.com/TigerVNC/tigervnc)
+- [X11Vnc](https://linux.die.net/man/1/x11vnc) ([Docs](https://www.x.org/archive/X11R7.6/doc/man/man1/Xvfb.1.xhtml))
+- [TigerVNC](https://github.com/TigerVNC/tigervnc) ([Docs](https://tigervnc.org/doc/Xvnc.html))
 
 ### Images
 
@@ -41,6 +42,137 @@ docker run -d \
     influx6/novnc:latest
 ```
 
+
+## Displays 
+
+NoVNC supports up to 5 independent displays, which can be used to connect independent of others, this allows you own and control each screen, displaying whatever you so wish.
+
+Just be aware more vnc client and viewers means more power the underline host needs to have.
+
+Each 5 displays are controlled by environment variables marked with a digit (we will use N to repesent said digit). 
+
+See template:
+
+```bash
+DISPLAY_N=:1 # which display number will be used by tigervnc or x11vnc
+VNC_SERVER_N=tigervnc  # which vnc server should be used
+DISPLAY_SCREEN_N="1" # which screen should x11vnc setup on, check x11vnc docs at https://www.x.org/archive/X11R7.6/doc/man/man1/Xvfb.1.xhtml
+ENABLE_SCREEN_N=1  # indicates if this screen is enabled
+ENABLE_SCREEN_N_NOVNC=1 # indicates if the NoVNC web client should be started
+TIGER_VNC_OPTS_N="" # indicates additional arguments to supply to tigervnc
+X11_VNC_OPTS_N="" # indicates additional arguments to supper to x11vnc
+DISPLAY_N_PORT=5901 # indicates which port should vnc serve on
+DISPLAY_N_NOVNC_PORT=6800 # indicates which port NoVNC webclient will host http server on
+```
+
+So examples: A 5 display vnc server has the following settings with only 2 enabled
+
+```bash
+
+# display 1
+DISPLAY_1=:1 
+DISPLAY_SCREEN_1="0" 
+ENABLE_SCREEN_1=1 
+ENABLE_SCREEN_1_NOVNC=1 
+VNC_SERVER_1=tigervnc 
+TIGER_VNC_OPTS_1="" 
+X11_VNC_OPTS_1="" 
+DISPLAY_1_PORT=5901 
+DISPLAY_1_NOVNC_PORT=6800 
+
+# display 2
+TIGER_VNC_OPTS_2="" 
+VNC_SERVER_2=tigervnc 
+DISPLAY_SCREEN_2="0" 
+X11_VNC_OPTS_2="" 
+DISPLAY_2_PORT=5902 
+DISPLAY_2=:2 
+DISPLAY_2_NOVNC_PORT=6802 
+ENABLE_SCREEN_2=0 
+ENABLE_SCREEN_2_NOVNC=0 
+
+# display 3
+ENABLE_SCREEN_3=0 
+VNC_SERVER_3=tigervnc 
+TIGER_VNC_OPTS_3="" 
+DISPLAY_SCREEN_3="0" 
+X11_VNC_OPTS_3="" 
+DISPLAY_3_PORT=5903
+DISPLAY_3_NOVNC_PORT=6803 
+DISPLAY_3=:3 
+ENABLE_SCREEN_3_NOVNC=0 
+
+# display 4
+ENABLE_SCREEN_4=0 
+VNC_SERVER_4=tigervnc 
+DISPLAY_SCREEN_4="0" 
+TIGER_VNC_OPTS_4="" 
+X11_VNC_OPTS_4="" 
+DISPLAY_4_PORT=5904
+DISPLAY_4_NOVNC_PORT=6804 
+DISPLAY_4=:4 
+ENABLE_SCREEN_4_NOVNC=0 
+
+# display 5
+ENABLE_SCREEN_5=0 
+VNC_SERVER_5=tigervnc 
+TIGER_VNC_OPTS_5="" 
+DISPLAY_SCREEN_5="0" 
+X11_VNC_OPTS_5="" 
+DISPLAY_5_PORT=5905
+DISPLAY_5_NOVNC_PORT=6805 
+DISPLAY_5=:5 
+ENABLE_SCREEN_5_NOVNC=0 
+```
+
+We can then set them up for connectivity in Guacamole using following `user-mapping.xml`
+
+```bash
+...
+<connection name="SSH">
+    <protocol>ssh</protocol>
+    <param name="hostname">0.0.0.0</param>
+    <param name="port">22</param>
+    <param name="username">novnc</param>
+    <param name="password">novnc</param>
+    <param name="private-key">/home/novnc/.ssh/id_rsa</param>
+</connection>
+<connection name="Screen 1">
+    <protocol>vnc</protocol>
+    <param name="hostname">0.0.0.0</param>
+    <param name="port">5901</param>
+    <param name="password">{{VNC_PASSWORD}}</param>
+    <param name="ignore-cert">true</param>
+</connection>
+<connection name="Screen 2">
+    <protocol>vnc</protocol>
+    <param name="hostname">0.0.0.0</param>
+    <param name="port">5902</param>
+    <param name="password">{{VNC_PASSWORD}}</param>
+    <param name="ignore-cert">true</param>
+</connection>
+<connection name="Screen 3">
+    <protocol>vnc</protocol>
+    <param name="hostname">0.0.0.0</param>
+    <param name="port">5903</param>
+    <param name="password">{{VNC_PASSWORD}}</param>
+    <param name="ignore-cert">true</param>
+</connection>
+<connection name="Screen 4">
+    <protocol>vnc</protocol>
+    <param name="hostname">0.0.0.0</param>
+    <param name="port">5904</param>
+    <param name="password">{{VNC_PASSWORD}}</param>
+    <param name="ignore-cert">true</param>
+</connection>
+<connection name="Screen 5">
+    <protocol>vnc</protocol>
+    <param name="hostname">0.0.0.0</param>
+    <param name="port">5905</param>
+    <param name="password">{{VNC_PASSWORD}}</param>
+    <param name="ignore-cert">true</param>
+</connection>
+```
 
 ## Guacamole Client
 
