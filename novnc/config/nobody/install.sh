@@ -27,8 +27,8 @@ echo "1000 ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
 echo "%1000 ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers && \
 
 # setup NOVNC
-git clone --depth 1 https://github.com/novnc/noVNC.git $HOME/noVNC && \
-git clone --depth 1 https://github.com/novnc/websockify $HOME/noVNC/utils/websockify && \
+git clone --depth 1 https://github.com/crt-fork/noVNC.git $HOME/noVNC && \
+git clone --depth 1 https://github.com/crt-fork/websockify $HOME/noVNC/utils/websockify && \
 rm -rf $HOME/noVNC/.git && \
 rm -rf $HOME/noVNC/utils/websockify/.git && \
 sed -i -- "s/ps -p/ps -o pid | grep/g" $HOME/noVNC/utils/novnc_proxy
