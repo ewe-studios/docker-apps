@@ -13,7 +13,6 @@ shift;
 shift;
 shift;
 shift;
-shift;
 
 if [ "$novnc_enabled" = "1" ]; then
   if [ "$enabled" = "1" ]; then
