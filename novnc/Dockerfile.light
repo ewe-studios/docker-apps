@@ -106,7 +106,9 @@ RUN \
       rxvt-unicode thunar \
       fluxbox \
       git dunst hsetroot \
-      mesa glu mesa-dev mesa-egl mesa-gl mesa-gles mesa-vulkan-intel mesa-dri-nouveau mesa-osmesa 	mesa-xatracker mesa-demos \
+      mesa glu mesa-dev mesa-egl mesa-gl mesa-gles mesa-vulkan-intel \
+      mesa-dri-nouveau mesa-dri-intel mesa-dri-ati mesa-dri-swrast mesa-osmesa \
+      mesa-xatracker mesa-demos libxv libva libva-glx libva-intel-driver libva-vdpau-driver \
       ttf-dejavu font-noto ttf-dejavu ttf-liberation \
       compton xrdp \
       xterm faenza-icon-theme \
