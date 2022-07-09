@@ -75,6 +75,7 @@ ENV GUID=$GUID \
     DEBIAN_FRONTEND=noninteractive \
     SECURITY_TYPE=None \
     VNC_IP=localhost \
+    NOVNC_HOSTNAME=0.0.0.0 \
     VNC_FRAMERATE=60 \
     DISPLAY_DEPTH=24 \
     DISPLAY_PIXEL_FORMAT=RGB888 \
