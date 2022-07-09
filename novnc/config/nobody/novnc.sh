@@ -15,9 +15,6 @@ shift;
 shift;
 shift;
 
-hostname="${NOVNC_HOSTNAME}";
-HOSTNAME="${NOVNC_HOSTNAME}";
-
 if [ "$novnc_enabled" = "1" ]; then
   if [ "$enabled" = "1" ]; then
     /home/novnc/noVNC/utils/novnc_proxy \
@@ -25,6 +22,7 @@ if [ "$novnc_enabled" = "1" ]; then
       --key /home/novnc/ssl/server.key \
       --heartbeat 2 \
       --vnc "$vnc_addr:$vnc_port" \
+      --listen-addr "0.0.0.0" \
       --listen "$web_port" \
       "$@"
   fi
