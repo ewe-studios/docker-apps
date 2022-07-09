@@ -9,6 +9,7 @@ ARG GUID=1000
 # Setup environment variables
 ENV GUID=$GUID \
     PUID=$PUID \
+    SUPERVISOR_RETRIES=3 \
     # display 1
     DISPLAY_1=:1 \
     DISPLAY_SCREEN_1="0" \
@@ -75,7 +76,7 @@ ENV GUID=$GUID \
     VNC_IP=localhost \
     VNC_FRAMERATE=60 \
     DISPLAY_DEPTH=24 \
-    DISPLAY_PIXEL_FORMAT=24 \
+    DISPLAY_PIXEL_FORMAT=RGB888 \
     DISPLAY_WIDTH=1280 \
     DISPLAY_HEIGHT=1024 \
     DISPLAY_MAX=0 \
