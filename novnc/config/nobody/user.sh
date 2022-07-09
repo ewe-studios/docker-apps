@@ -34,4 +34,8 @@ chmod 0775 /etc/localtime
 # set shell for user novnc
 export HOME=/home/novnc
 
+# setup tomcat
+sudo mkdir /run/openrc
+sudo touch /run/openrc/softleve
+
 set +x
