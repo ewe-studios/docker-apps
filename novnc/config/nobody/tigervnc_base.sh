@@ -11,9 +11,14 @@ if [ -f "/home/novnc/.vnc/passwd" ]; then
 fi
 
 create_screen() {
+  DISPLAY="$1";
   display="$1";
   port="$2"
-  other_args="$3";
+
+  shift;
+  shift;
+
+  other_args="$@";
 
   command="Xvnc ${display} -rfbport ${port} -geometry ${DISPLAY_WIDTH}x${DISPLAY_HEIGHT} -depth ${DISPLAY_DEPTH} -pixelformat ${DISPLAY_PIXEL_FORMAT} -FrameRate=${VNC_FRAMERATE} ${OTHER_ARGS} ${other_args}"
   if [ "${DISPLAY_MAX}" = "1" ]; then

@@ -7,18 +7,54 @@ ARG PUID=1000
 ARG GUID=1000
 
 # Setup environment variables
-ENV DISPLAY_1=:0 \
+ENV GUID=$GUID \
+    PUID=$PUID \
+    # display 1
+    DISPLAY_1=:1 \
+    DISPLAY_SCREEN_1="1" \
+    ENABLE_SCREEN_1=1 \
+    ENABLE_SCREEN_1_NOVNC=0 \
     TIGER_VNC_OPTS_1="" \
     X11_VNC_OPTS_1="" \
     DISPLAY_1_PORT=5900 \
+    DISPLAY_1_NOVNC_PORT=6800 \
+    # display 2
     TIGER_VNC_OPTS_2="" \
+    DISPLAY_SCREEN_2="2" \
     X11_VNC_OPTS_2="" \
     DISPLAY_2_PORT=5901 \
-    DISPLAY_2=:1 \
-    ENABLE_SCREEN_2=1 \
-    ENABLE_SCREEN_2_NOVNC=1 \
-    GUID=$GUID \
-    PUID=$PUID \
+    DISPLAY_2=:2 \
+    DISPLAY_2_NOVNC_PORT=6802 \
+    ENABLE_SCREEN_2=0 \
+    ENABLE_SCREEN_2_NOVNC=0 \
+    # display 3
+    ENABLE_SCREEN_3=0 \
+    TIGER_VNC_OPTS_3="" \
+    DISPLAY_SCREEN_3="3" \
+    X11_VNC_OPTS_3="" \
+    DISPLAY_3_PORT=5903\
+    DISPLAY_3_NOVNC_PORT=6803 \
+    DISPLAY_3=:3 \
+    ENABLE_SCREEN_3_NOVNC=0 \
+    # display 4
+    ENABLE_SCREEN_4=0 \
+    DISPLAY_SCREEN_4="4" \
+    TIGER_VNC_OPTS_4="" \
+    X11_VNC_OPTS_4="" \
+    DISPLAY_4_PORT=5904\
+    DISPLAY_4_NOVNC_PORT=6804 \
+    DISPLAY_4=:4 \
+    ENABLE_SCREEN_4_NOVNC=0 \
+    # display 5
+    ENABLE_SCREEN_5=0 \
+    TIGER_VNC_OPTS_5="" \
+    DISPLAY_SCREEN_5="5" \
+    X11_VNC_OPTS_5="" \
+    DISPLAY_5_PORT=5905\
+    DISPLAY_5_NOVNC_PORT=6805 \
+    DISPLAY_5=:5 \
+    ENABLE_SCREEN_5_NOVNC=0 \
+    # other environment vars
     HOME=/home/novnc \
     TERM=xterm \
     LANG=en_US.UTF-8 \
@@ -32,6 +68,7 @@ ENV DISPLAY_1=:0 \
     DEBIAN_FRONTEND=noninteractive \
     SECURITY_TYPE=None \
     VNC_SERVER=tigervnc \
+    VNC_IP=localhost \
     VNC_FRAMERATE=60 \
     DISPLAY_DEPTH=24 \
     DISPLAY_PIXEL_FORMAT=24 \
