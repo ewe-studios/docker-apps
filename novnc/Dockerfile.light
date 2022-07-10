@@ -77,7 +77,7 @@ ENV GUID=$GUID \
     VNC_IP=localhost \
     NOVNC_HOSTNAME=0.0.0.0 \
     VNC_FRAMERATE=60 \
-    WINDOW_MANAGER=fluxbox \
+    WINDOW_MANAGER=i3wm \
     DISPLAY_DEPTH=24 \
     DISPLAY_PIXEL_FORMAT=RGB888 \
     DISPLAY_WIDTH=1280 \
@@ -91,7 +91,7 @@ ENV GUID=$GUID \
     GUACA_PASSWORD=novnc \
     GUACA_SSL=true \
     VNC_PASSWORD=novnc \
-    XDG_RUNTIME=/home/novnc/.local/sway
+    XDG_RUNTIME=/home/novnc/.sway
 
 COPY config/nobody/ /home/novnc/
 
