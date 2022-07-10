@@ -109,7 +109,7 @@ RUN \
       make \
       perl perl-utils \
       vim nano musl eudev-libs \
-      rxvt-unicode thunar \
+      rxvt-unicode thunar scrot xcompmgr \
       elogind polkit-elogind  xorg-server xf86-input-libinput setxkbmap \
       seatd-launch xwayland foot dmenu swaylock swaybg swayidle sway sway-doc \
       fluxbox i3wm i3wm-save_tree perl-anyevent-i3 i3status mesa-dri-gallium eudev ttf-dejavu \
@@ -158,6 +158,7 @@ RUN mkdir -p /home/novnc && \
 COPY  config/xdp/xrdp.ini /etc/xrdp/xrdp.ini
 
 # COPY --chown=novnc:novnc pre-configured config files for deluge
+COPY --chown=novnc:novnc config/i3/config /home/novnc/.config/i3/config
 COPY --chown=novnc:novnc config/ssh/sshd_config /etc/ssh/sshd_config
 COPY --chown=novnc:novnc config/terminator /home/.config/terminator
 COPY --chown=novnc:novnc config/terminator /etc/xdg/terminator
