@@ -6,7 +6,7 @@ ENV HOME /home/novnc
 
 RUN set -ex && \
     sudo -H -u novnc mkdir -p /home/novnc/ideau && \
-    apk --no-cache --update add midori
+    apk --no-cache --update add midori netcat-openbsd net-tools
 
 RUN set -ex && \
     # Install IntelliJ Community
