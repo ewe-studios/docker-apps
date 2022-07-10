@@ -110,7 +110,7 @@ RUN \
       perl perl-utils \
       vim nano musl eudev-libs \
       rxvt-unicode thunar \
-      elogind polkit-elogind  xorg-server xf86-input-libinput \
+      elogind polkit-elogind  xorg-server xf86-input-libinput setxkbmap \
       seatd-launch xwayland foot dmenu swaylock swaybg swayidle sway sway-doc \
       fluxbox i3wm i3wm-save_tree perl-anyevent-i3 i3status mesa-dri-gallium eudev ttf-dejavu \
       git dunst hsetroot xf86-video-intel xf86-video-fbdev xf86-video-vesa terminus-font dbus \
