@@ -109,7 +109,7 @@ RUN \
       make \
       perl perl-utils \
       vim nano musl eudev-libs \
-      rxvt-unicode thunar scrot xcompmgr \
+      rxvt-unicode thunar scrot xcompmgr xev xev-doc \
       elogind polkit-elogind  xorg-server xf86-input-libinput setxkbmap \
       seatd-launch xwayland foot dmenu swaylock swaybg swayidle sway sway-doc \
       fluxbox i3wm i3wm-save_tree perl-anyevent-i3 i3status mesa-dri-gallium eudev ttf-dejavu \
@@ -180,6 +180,7 @@ COPY --chown=novnc:novnc styles/Cilia/Fluxbox-config/keys /home/novnc/.fluxbox/k
 COPY --chown=novnc:novnc styles/Cilia/Fluxbox-config/menu /home/novnc/.fluxbox/menu
 
 # COPY --chown=novnc:novnc ssl files
+COPY --chown=novnc:novnc bg /home/novnc/bg
 COPY --chown=novnc:novnc ssl /home/novnc/ssl
 COPY ssl/rootCA.crt /usr/local/share/ca-certificates/rootA.crt
 
