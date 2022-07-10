@@ -9,7 +9,7 @@ shift;
 shift;
 
 if [ "$enabled" = "1" ]; then
-  if [ "$WINDOW_MANAGER" = "fluxbox" ]; then
+  if [ "$WINDOW_MANAGER" = "i3wm" ]; then
     fluxbox "$@"
   fi
 fi
