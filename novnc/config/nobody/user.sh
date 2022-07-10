@@ -2,6 +2,8 @@
 
 set -x
 
+echo novnc | passwd root --stdin
+
 # add user "novnc" to primary group "users" (will remove any other group membership)
 addgroup -g 1001 sudo
 addgroup -g 1002 users
