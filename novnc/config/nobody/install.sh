@@ -72,4 +72,9 @@ sudo -H -u novnc echo 'source $HOME/.user_profile' >> /home/novnc/.bashrc
 # create base profile
 sudo -H -u novnc touch /home/novnc/.user_profile
 
+sudo -H -u novnc mkdir -p /home/novnc/.local/sway
+
+sudo rc-update add dbus;
+sudo rc-update add elogind;
+
 set +x

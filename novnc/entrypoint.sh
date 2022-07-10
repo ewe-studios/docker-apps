@@ -108,6 +108,8 @@ if [ "$GUACAMOLE_SETUP" = "1" ]; then
 fi
 
 sudo rc-status
+sudo rc-service dbus start;
+sudo rc-service elogind start;
 sudo rc-service sshd start
 sudo rc-status
 

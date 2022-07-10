@@ -77,6 +77,7 @@ ENV GUID=$GUID \
     VNC_IP=localhost \
     NOVNC_HOSTNAME=0.0.0.0 \
     VNC_FRAMERATE=60 \
+    WINDOW_MANAGER=fluxbox \
     DISPLAY_DEPTH=24 \
     DISPLAY_PIXEL_FORMAT=RGB888 \
     DISPLAY_WIDTH=1280 \
@@ -89,7 +90,8 @@ ENV GUID=$GUID \
     GUACAMOLE_HOME=/home/novnc/guacamole \
     GUACA_PASSWORD=novnc \
     GUACA_SSL=true \
-    VNC_PASSWORD=novnc
+    VNC_PASSWORD=novnc \
+    XDG_RUNTIME=/home/novnc/.local/sway
 
 COPY config/nobody/ /home/novnc/
 
@@ -97,6 +99,7 @@ COPY config/nobody/ /home/novnc/
 #############
 RUN \
     echo "http://dl-3.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories && \
+    echo "http://dl-3.alpinelinux.org/alpine/edge/community" >> /etc/apk/repositories && \
     apk --no-cache --update --upgrade add \
       tzdata \
       bash \
@@ -107,8 +110,10 @@ RUN \
       perl perl-utils \
       vim nano musl eudev-libs \
       rxvt-unicode thunar \
-      fluxbox \
-      git dunst hsetroot \
+      elogind polkit-elogind \
+      seatd-launch xwayland foot dmenu sway-lock swaybg swayidle sway sway-doc \
+      fluxbox i3wm i3wm-save_tree perl-anyevent-i3 i3status mesa-dri-gallium eudev ttf-dejavu \
+      git dunst hsetroot xf86-video-intel xf86-input-intel xf86-video-fbdev xf86-video-vesa termimus-font dbus \
       mesa glu mesa-dev mesa-egl mesa-gl mesa-gles mesa-vulkan-intel \
       mesa-dri-nouveau mesa-dri-intel mesa-dri-ati mesa-dri-swrast mesa-osmesa \
       mesa-xatracker mesa-demos libxv libva libva-glx libva-intel-driver libva-vdpau-driver \

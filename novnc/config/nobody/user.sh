@@ -2,6 +2,9 @@
 
 set -x
 
+setup-xorg-base
+setup-udev
+
 echo novnc | passwd root --stdin
 
 # add user "novnc" to primary group "users" (will remove any other group membership)
@@ -43,5 +46,9 @@ sudo touch /run/openrc/softlevel
 
 sudo mkdir -p /var/screens
 sudo chmod 0777 -R /var/screens
+
+dbus-uuidgen > /var/lib/dbus/machine-id
+
+rc-update add dbus
 
 set +x
