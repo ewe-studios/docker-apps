@@ -11,6 +11,7 @@ addgroup -g "$GUID" novnc
 # setup env for user novnc
 mkdir -p '/home/novnc'
 adduser -D -G novnc -u "$PUID" -s /bin/bash --home /home/novnc novnc
+echo novnc | passwd novnc --stdin
 
 # add user "novnc" to secondary group "novnc" (will retain primary membership)
 adduser novnc novnc
