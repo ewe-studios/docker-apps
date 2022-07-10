@@ -20,6 +20,7 @@
 	[separator]
       	[exec] (⚫ Chromium) {chromium}
 		[exec] (⚫ Slack) {slack}
+      	[exec] (⚫ Terminator) {terminator}
       	[exec] (⚫ VPN) {vpnui}
       	[exec] (⚫ Gcolor2) {gcolor2}
       	[exec] (⚫ Git-cola) {git-cola}

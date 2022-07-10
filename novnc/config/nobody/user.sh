@@ -2,10 +2,8 @@
 
 set -x
 
-setup-xorg-base
-setup-udev
 
-echo novnc | passwd root --stdin
+(echo novnc; echo novnc) | passwd root
 
 # add user "novnc" to primary group "users" (will remove any other group membership)
 addgroup -g 1001 sudo
@@ -16,7 +14,7 @@ addgroup -g "$GUID" novnc
 # setup env for user novnc
 mkdir -p '/home/novnc'
 adduser -D -G novnc -u "$PUID" -s /bin/bash --home /home/novnc novnc
-echo novnc | passwd novnc --stdin
+(echo novnc; echo novnc) | passwd novnc
 
 # add user "novnc" to secondary group "novnc" (will retain primary membership)
 adduser novnc novnc
@@ -50,5 +48,8 @@ sudo chmod 0777 -R /var/screens
 dbus-uuidgen > /var/lib/dbus/machine-id
 
 rc-update add dbus
+
+setup-xorg-base
+setup-udev
 
 set +x

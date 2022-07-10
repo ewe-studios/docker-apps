@@ -111,9 +111,9 @@ RUN \
       vim nano musl eudev-libs \
       rxvt-unicode thunar \
       elogind polkit-elogind \
-      seatd-launch xwayland foot dmenu sway-lock swaybg swayidle sway sway-doc \
+      seatd-launch xwayland foot dmenu swaylock swaybg swayidle sway sway-doc \
       fluxbox i3wm i3wm-save_tree perl-anyevent-i3 i3status mesa-dri-gallium eudev ttf-dejavu \
-      git dunst hsetroot xf86-video-intel xf86-input-intel xf86-video-fbdev xf86-video-vesa termimus-font dbus \
+      git dunst hsetroot xf86-video-intel xf86-video-fbdev xf86-video-vesa terminus-font dbus \
       mesa glu mesa-dev mesa-egl mesa-gl mesa-gles mesa-vulkan-intel \
       mesa-dri-nouveau mesa-dri-intel mesa-dri-ati mesa-dri-swrast mesa-osmesa \
       mesa-xatracker mesa-demos libxv libva libva-glx libva-intel-driver libva-vdpau-driver \
