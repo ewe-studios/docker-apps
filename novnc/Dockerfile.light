@@ -158,6 +158,7 @@ RUN mkdir -p /home/novnc && \
 COPY  config/xdp/xrdp.ini /etc/xrdp/xrdp.ini
 
 # COPY --chown=novnc:novnc pre-configured config files for deluge
+COPY --chown=novnc:novnc config/xmodmap/Xmodmap /home/novnc/.Xmodmap
 COPY --chown=novnc:novnc config/i3/config /home/novnc/.config/i3/config
 COPY --chown=novnc:novnc config/ssh/sshd_config /etc/ssh/sshd_config
 COPY --chown=novnc:novnc config/terminator /home/.config/terminator

@@ -10,6 +10,7 @@ shift;
 
 if [ "$enabled" = "1" ]; then
   if [ "$WINDOW_MANAGER" = "i3wm" ]; then
+    xmodmap /home/novnc/.Xmodmap
     dbus-launch i3 "$@"
   fi
 fi

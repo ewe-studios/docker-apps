@@ -113,5 +113,7 @@ sudo rc-service elogind start;
 sudo rc-service sshd start
 sudo rc-status
 
+xmodmap /home/novnc/.Xmodmap
+
 # start application
 /usr/bin/supervisord -c /etc/supervisord.conf
