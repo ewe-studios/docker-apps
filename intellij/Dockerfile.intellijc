@@ -1,7 +1,7 @@
 FROM influx6/novnc:latest
 MAINTAINER "Alexander Ewetumo <alex.ewetumo@gmail.com>"
 
-ARG INTELLIJ_VERSION=2022.1.3
+ARG INTELLIJ_VERSION=2022.2
 ENV HOME /home/novnc
 
 RUN set -ex && \

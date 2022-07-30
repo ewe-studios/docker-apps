@@ -15,7 +15,7 @@ RUN \
       coreutils libxml2 libarchive python3 py3-pip nodejs sqlite mariadb-client \
       e2fsprogs-libs llvm libpthread-stubs  automake gfortran subversion python3-dev \
       libxtst libxrender perl-digest-md5 lua-md5 python3-dev py3-pip \
-      mpc1 mpfr4 musl-dev git curl build-base autoconf automake py3-cryptography cryptography \
+      mpc1 mpfr4 musl-dev git curl build-base autoconf automake py3-cryptography xkill \
       linux-headers musl-dev libffi-dev openssl-dev openssh py-virtualenv \
       cmake g++ gcc gcc-objc e2fsprogs e2fsprogs-extra \
       e2fsprogs-libs libpthread-stubs  automake gfortran subversion python3-dev \
