@@ -5,7 +5,7 @@ set -x
 DISPLAY="$1";
 shift;
 
-export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/novnc/yourkit/linux-arm-64"
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/novnc/YourKit-JavaProfiler-2022.3/linux-arm-64"
 
 sudo chown -R $PUID:$GUID /home/novnc/.idea
 sudo chown $PUID:$GUID "$IDEAU_HOME/bin/idea.sh"

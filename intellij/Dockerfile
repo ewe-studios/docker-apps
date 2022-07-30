@@ -3,6 +3,7 @@ MAINTAINER "Alexander Ewetumo <alex.ewetumo@gmail.com>"
 
 ARG INTELLIJ_VERSION=2022.2
 ARG YOURKIT_VERSION=2022.3-b103
+ARG YOURKIT_VFILE=YourKit-JavaProfiler-2022.3
 ENV HOME /home/novnc
 
 RUN set -ex && \
@@ -15,7 +16,7 @@ RUN set -ex && \
     sudo -H -u novnc wget https://download.yourkit.com/yjp/2022.3/YourKit-JavaProfiler-${YOURKIT_VERSION}.zip && \
     sudo -H -u novnc wget https://download-cdn.jetbrains.com/idea/ideaIU-${INTELLIJ_VERSION}.tar.gz && \
     sudo -H -u novnc tar -xvzf ideaIU-${INTELLIJ_VERSION}.tar.gz --strip-components 1 --directory /home/novnc/ideau/ && \
-    sudo -H -u novnc unzip YourKit-JavaProfiler-${YOURKIT_VERSION}.zip -d /home/novnc/yourkit && \
+    sudo -H -u novnc unzip YourKit-JavaProfiler-${YOURKIT_VERSION}.zip && \
     rm -rf ideaIU-${INTELLIJ_VERSION}.tar.gz && \
     rm -rf YourKit-JavaProfiler-${YOURKIT_VERSION}.zip
 
