@@ -5,6 +5,8 @@ set -x
 DISPLAY="$1";
 shift;
 
+export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:/home/novnc/yourkit/linux-arm-64"
+
 sudo chown -R $PUID:$GUID /home/novnc/.idea
 sudo chown $PUID:$GUID "$IDEAU_HOME/bin/idea.sh"
 sudo chmod +x "$IDEAU_HOME/bin/idea.sh"

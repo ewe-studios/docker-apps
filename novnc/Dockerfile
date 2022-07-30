@@ -10,7 +10,7 @@ MAINTAINER "Alexander Ewetumo <alex.ewetumo@gmail.com>"
 RUN \
     # install needed packages
     apk --no-cache --update --upgrade add \
-      shadow libgcrypt linux-pam binutils gdb musl strace \
+      shadow libgcrypt linux-pam binutils gdb musl strace libc6-compat  \
       bash-doc man-db man-pages less less-doc bash-completion \
       coreutils libxml2 libarchive python3 py3-pip nodejs sqlite mariadb-client \
       e2fsprogs-libs llvm libpthread-stubs  automake gfortran subversion python3-dev \
